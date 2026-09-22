@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sender — Ingeniería RF y Broadcasting</title>
+  <meta name="description" content="Transmisores AM/FM, antenas HF, sistemas NAVTEX y torres para telecomunicaciones. Más de 20 años de ingeniería chilena operando donde la señal no puede fallar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#hero">SENDER<span class="dot"></span></a>
+    <nav class="nav-links">
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#espectro">Espectro</a>
+      <a href="#productos">Productos</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="hero">
+      <div class="hero-bg"><img src="./assets/hero.jpg" alt="Torre de radiodifusión al anochecer" /></div>
+      <div class="hero-veil"></div>
+      <div class="hero-content container">
+        <p class="hero-eyebrow label">BIS SpA · Broadcasting &amp; Telecomunicaciones · Chile</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Ingeniería de radiofrecuencia</span></span>
+          <span class="line"><span>para los lugares donde</span></span>
+          <span class="line"><span class="amber">la señal no puede fallar.</span></span>
+        </h1>
+        <p class="hero-sub">Transmisores, antenas y torres diseñados bajo estándares internacionales de broadcasting. Más de 20 años operando en defensa, radiodifusión y los territorios más remotos de Chile.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#espectro">Sintonizar el espectro</a>
+          <a class="btn btn-ghost" href="https://wa.me/56983864148" target="_blank" rel="noopener">WhatsApp directo</a>
+        </div>
+        <div class="hero-stats" data-stagger>
+          <div class="stat"><strong><span data-count="20">0</span>+</strong><span class="stat-label">años en broadcasting</span></div>
+          <div class="stat"><strong><span data-count="60">0</span> m</strong><span class="stat-label">torre Armada de Chile</span></div>
+          <div class="stat"><strong><span data-count="3759">0</span> km</strong><span class="stat-label">enlace HF Rapa Nui</span></div>
+          <div class="stat"><strong>490/518 <span class="stat-unit">kHz</span></strong><span class="stat-label">sistemas NAVTEX</span></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span>Desliza</div>
+    </section>
+
+    <!-- ============ TRAYECTORIA / RECEIPTS ============ -->
+    <section id="trayectoria" class="section">
+      <div class="container">
+        <p class="label reveal">01 — Trayectoria</p>
+        <h2 class="reveal">Ninguna afirmación<br />sin su respaldo.</h2>
+        <p class="section-sub reveal">Tres proyectos reales que definen lo que hacemos: infraestructura crítica, ambientes hostiles y cero margen de error.</p>
+        <div class="receipts" data-stagger>
+          <article class="receipt">
+            <span class="receipt-n">EXHIBIT A</span>
+            <h3>Armada de Chile</h3>
+            <p>Ingeniería y desmontaje de torre autosoportada de <strong>60 metros</strong> en Playa Ancha, Valparaíso. Infraestructura de defensa ejecutada con precisión milimétrica.</p>
+            <span class="receipt-tag">Valparaíso · Defensa</span>
+          </article>
+          <article class="receipt">
+            <span class="receipt-n">EXHIBIT B</span>
+            <h3>Isla de Pascua</h3>
+            <p>Solución de comunicaciones <strong>HF de largo alcance</strong> instalada y operando en Rapa Nui, a 3.759 km del continente. Entorno estratégico, logística extrema.</p>
+            <span class="receipt-tag">Rapa Nui · HF largo alcance</span>
+          </article>
+          <article class="receipt">
+            <span class="receipt-n">EXHIBIT C</span>
+            <h3>Sistema NAVTEX</h3>
+            <p>Transmisión <strong>MF 490/518 kHz</strong> para seguridad marítima y defensa. Sistemas radiantes de alta resistencia ambiental, integrados con transmisores Sender.</p>
+            <span class="receipt-tag">Marítimo · NAVTEX</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ESPECTRO (SIGNATURE MOVE) ============ -->
+    <section id="espectro">
+      <div class="espectro-pin">
+        <div class="container espectro-inner">
+          <div class="espectro-head">
+            <p class="label">02 — Signature · Espectro radioeléctrico</p>
+            <h2>Sintoniza el espectro.</h2>
+            <p class="section-sub">Tu scroll es la perilla de sintonía. Recorre las cuatro bandas donde opera la ingeniería Sender — cada frecuencia tiene un equipo detrás.</p>
+          </div>
+
+          <div class="dial">
+            <div class="dial-readout">
+              <div class="freq-box">
+                <span id="freq">490,0</span><span id="unit" class="unit">kHz</span>
+              </div>
+              <div class="band-box">
+                <span class="label">Banda activa</span>
+                <strong id="band-name">NAVTEX</strong>
+              </div>
+            </div>
+            <canvas id="scope" width="900" height="160" aria-hidden="true"></canvas>
+            <div class="ruler">
+              <div class="needle" id="needle"></div>
+              <div class="segments" id="segments">
+                <div class="seg active" data-band="0"><span>NAVTEX</span><small>490–518 kHz</small></div>
+                <div class="seg" data-band="1"><span>AM</span><small>510–1700 kHz</small></div>
+                <div class="seg" data-band="2"><span>HF</span><small>2–30 MHz</small></div>
+                <div class="seg" data-band="3"><span>FM</span><small>88–108 MHz</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="band-panels">
+            <div class="panel active" data-band="0">
+              <h3>NAVTEX · 490–518 kHz</h3>
+              <p>Sistema radiante profesional para comunicaciones marítimas de seguridad. Diseño optimizado para MF, alta resistencia a condiciones ambientales exigentes e integración completa con transmisores NAVTEX Sender.</p>
+              <span class="panel-product">→ Sistema NAVTEX Profesional · Amplificador MF</span>
+            </div>
+            <div class="panel" data-band="1">
+              <h3>AM · 510–1700 kHz</h3>
+              <p>Transmisores de estado sólido de 1000, 2000 y 5000 W: arquitectura modular redundante con amplificadores clase D de alta eficiencia y modulación PWM bifásica. Antenas monopolo de alta eficiencia con torre aterrizada y protección atmosférica.</p>
+              <span class="panel-product">→ Transmisores AM estado sólido · Antena monopolo · ATU</span>
+            </div>
+            <div class="panel" data-band="2">
+              <h3>HF · 2–30 MHz</h3>
+              <p>Antenas HF profesionales de 1 kW para comunicaciones de largo alcance en proyectos de defensa y radiodifusión. Instaladas y operando hasta en Isla de Pascua, a 3.759 km del continente.</p>
+              <span class="panel-product">→ Antena HF Profesional 2–30 MHz · 1 kW</span>
+            </div>
+            <div class="panel" data-band="3">
+              <h3>FM · 88–108 MHz</h3>
+              <p>Transmisores FM-30 a FM-1000 con sintetizador digital de enganche de fase de alta eficiencia, protección de ondas estacionarias y sobretemperatura, y potencia de salida continuamente ajustable.</p>
+              <span class="panel-product">→ Transmisores FM · Enlace estudio–planta STL · Procesador de audio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTOS ============ -->
+    <section id="productos" class="section">
+      <div class="container">
+        <p class="label reveal">03 — Catálogo</p>
+        <h2 class="reveal">Equipos que sostienen<br />el aire de Chile.</h2>
+        <p class="section-sub reveal">Fabricación y suministro bajo normas internacionales de broadcasting. Cada equipo, diseñado para operar décadas.</p>
+
+        <div class="products-grid" data-stagger>
+          <article class="product product-img">
+            <div class="product-media"><img src="./assets/tx-am.jpg" alt="Transmisor AM de estado sólido" loading="lazy" /></div>
+            <div class="product-body">
+              <h3>Transmisores AM de estado sólido</h3>
+              <p>1000 / 2000 / 5000 W · 490–1700 kHz · Clase D modular redundante · PWM bifásico · Estabilidad ±5 Hz</p>
+            </div>
+          </article>
+          <article class="product product-img">
+            <div class="product-media"><img src="./assets/tx-fm.jpg" alt="Transmisor FM" loading="lazy" /></div>
+            <div class="product-body">
+              <h3>Transmisores FM</h3>
+              <p>FM-30 a FM-1000 · 88–108 MHz · Sintetizador digital PLL · Protección ROE y temperatura · Potencia ajustable</p>
+            </div>
+          </article>
+          <article class="product product-img">
+            <div class="product-media"><img src="./assets/antena-hf.jpg" alt="Antena HF profesional" loading="lazy" /></div>
+            <div class="product-body">
+              <h3>Antena HF profesional</h3>
+              <p>2–30 MHz · 1 kW · Alto rendimiento para comunicaciones de largo alcance · Proyectos de defensa y radiodifusión</p>
+            </div>
+          </article>
+          <article class="product product-img">
+            <div class="product-media"><img src="./assets/navtex.jpg" alt="Sistema NAVTEX" loading="lazy" /></div>
+            <div class="product-body">
+              <h3>Sistema NAVTEX 490/518 kHz</h3>
+              <p>Sistema radiante MF completo · Seguridad marítima · Resistencia ambiental extrema · Integrado con transmisores Sender</p>
+            </div>
+          </article>
+          <article class="product product-img">
+            <div class="product-media"><img src="./assets/torre.jpg" alt="Torre contraventada galvanizada" loading="lazy" /></div>
+            <div class="product-body">
+              <h3>Torres contraventadas</h3>
+              <p>Galvanizadas para telecomunicaciones · Ingeniería, montaje y desmontaje · Experiencia comprobada con Armada de Chile</p>
+            </div>
+          </article>
+          <article class="product product-spec">
+            <div class="product-body">
+              <span class="spec-n">510–1700 kHz</span>
+              <h3>Antenas monopolo AM/MF</h3>
+              <p>Mayor ancho de banda y eficiencia que antenas alimentadas en serie · Torre aterrizada con protección contra rayos · Integra TV, FM y enlaces sin aisladores especiales</p>
+            </div>
+          </article>
+          <article class="product product-spec">
+            <div class="product-body">
+              <span class="spec-n">STL</span>
+              <h3>Enlaces estudio–planta</h3>
+              <p>Enlaces de audio para radio AM y FM · Automatización de transmisiones · Procesadores de audio profesionales</p>
+            </div>
+          </article>
+          <article class="product product-spec">
+            <div class="product-body">
+              <span class="spec-n">RF</span>
+              <h3>Componentes de potencia</h3>
+              <p>Unidad de sintonía de antena (ATU) · Coaxial 1/2" Super Flex y LMR-400 · Condensadores de alta potencia · Circuitos integrados RF</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS / PROPAGACIÓN ============ -->
+    <section id="proyectos" class="section">
+      <div class="container">
+        <p class="label reveal">04 — Proyectos</p>
+        <h2 class="reveal">3.759 km de océano<br />no son un obstáculo.</h2>
+        <p class="section-sub reveal">Desliza y sigue la señal: comunicaciones HF de largo alcance entre el continente e Isla de Pascua, instaladas y operando en entorno estratégico.</p>
+
+        <div class="propagation reveal">
+          <svg id="prop-map" viewBox="0 0 1000 420" role="img" aria-label="Mapa de propagación de señal HF entre Santiago e Isla de Pascua">
+            <defs>
+              <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#ffb454" />
+              </linearGradient>
+              <radialGradient id="pulse-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffb454" stop-opacity=".9" />
+                <stop offset="100%" stop-color="#ffb454" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <!-- grilla de fondo -->
+            <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+              <line x1="0" y1="70" x2="1000" y2="70" /><line x1="0" y1="140" x2="1000" y2="140" />
+              <line x1="0" y1="210" x2="1000" y2="210" /><line x1="0" y1="280" x2="1000" y2="280" />
+              <line x1="0" y1="350" x2="1000" y2="350" />
+              <line x1="100" y1="0" x2="100" y2="420" /><line x1="300" y1="0" x2="300" y2="420" />
+              <line x1="500" y1="0" x2="500" y2="420" /><line x1="700" y1="0" x2="700" y2="420" />
+              <line x1="900" y1="0" x2="900" y2="420" />
+            </g>
+            <!-- costa de Chile estilizada -->
+            <path d="M 850 20 L 880 60 L 860 110 L 885 160 L 865 220 L 890 280 L 860 340 L 875 400 L 840 400 L 830 330 L 845 260 L 825 190 L 845 120 L 828 60 Z"
+                  fill="rgba(56,189,248,0.10)" stroke="rgba(56,189,248,0.45)" stroke-width="1.5" />
+            <!-- Isla de Pascua -->
+            <circle id="island-pulse" cx="140" cy="215" r="26" fill="url(#pulse-grad)" opacity="0" />
+            <circle cx="140" cy="215" r="5" fill="#ffb454" />
+            <!-- Santiago -->
+            <circle cx="852" cy="196" r="5" fill="#38bdf8" />
+            <!-- arco de propagación -->
+            <path id="link-path" d="M 852 196 C 650 40, 350 40, 140 215" fill="none" stroke="url(#arc-grad)" stroke-width="2.5" stroke-linecap="round" />
+            <!-- etiquetas -->
+            <text x="868" y="228" fill="rgba(255,255,255,0.75)" font-size="15" font-family="IBM Plex Mono, monospace">Santiago · Planta TX</text>
+            <text x="156" y="248" fill="rgba(255,255,255,0.75)" font-size="15" font-family="IBM Plex Mono, monospace">Rapa Nui · RX HF</text>
+            <text x="430" y="88" fill="rgba(255,255,255,0.35)" font-size="13" font-family="IBM Plex Mono, monospace">Océano Pacífico — banda HF 2–30 MHz</text>
+          </svg>
+          <div class="prop-km">
+            <span id="km">0</span> km recorridos por la señal
+          </div>
+        </div>
+
+        <div class="proj-list" data-stagger>
+          <div class="proj"><span class="proj-loc">Playa Ancha, Valparaíso</span><p>Ingeniería y desmontaje de torre autosoportada de 60 m para la Armada de Chile.</p></div>
+          <div class="proj"><span class="proj-loc">Isla de Pascua</span><p>Instalación y operación de comunicaciones HF de largo alcance en entorno estratégico.</p></div>
+          <div class="proj"><span class="proj-loc">San Miguel, Santiago</span><p>Ingeniería, fabricación y montaje de infraestructura de telecomunicaciones de alta complejidad.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section id="contacto" class="section contacto">
+      <div class="container">
+        <p class="label reveal">05 — Contacto</p>
+        <h2 class="contact-title reveal">¿Tu próximo enlace<br />empieza aquí.</h2>
+        <p class="section-sub reveal">Cuéntanos el proyecto: radiodifusión, defensa, comunicaciones marítimas o infraestructura crítica. La ingeniería la ponemos nosotros.</p>
+        <div class="contact-grid" data-stagger>
+          <a class="contact-card" href="https://wa.me/56983864148" target="_blank" rel="noopener">
+            <span class="label">WhatsApp / Celular</span>
+            <strong>(+56 9) 8386 4148</strong>
+          </a>
+          <a class="contact-card" href="mailto:sender@sender.cl">
+            <span class="label">Ventas</span>
+            <strong>sender@sender.cl</strong>
+            <small>bis.ltda@gmail.com</small>
+          </a>
+          <div class="contact-card">
+            <span class="label">Taller e ingeniería</span>
+            <strong>Blanco Viel #1108, 2º piso</strong>
+            <small>San Miguel, Santiago, Chile</small>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-big reveal" href="https://wa.me/56983864148" target="_blank" rel="noopener">Cotizar proyecto por WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>SENDER · BIS SpA — Telecomunicaciones y Broadcasting</span>
+      <span class="footer-copy">© 2026 · Rediseño concept demo (método ScrollCraft-Arena) · Datos del sitio original sender.cl</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
