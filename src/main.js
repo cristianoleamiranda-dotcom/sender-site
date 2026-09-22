@@ -1,4 +1,6 @@
 import './style.css';
+import './i18n';
+import './bg3d';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';

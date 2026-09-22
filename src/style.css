@@ -332,3 +332,42 @@ a.contact-card:hover { background: rgba(255,255,255,.18); border-color: rgba(255
   .marquee-track, .scroll-hint span, .grain { animation: none; }
   * { transition-duration: .01ms !important; }
 }
+
+/* ============ v3: FONDO 3D + LANG TOGGLE + WA FAB ============ */
+#bg3d {
+  position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: .4;
+  transition: opacity .6s;
+}
+.lang-toggle {
+  display: inline-flex; gap: 2px; border: 1px solid currentColor; border-radius: 999px;
+  padding: 3px 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+  background: transparent; color: inherit; cursor: pointer;
+}
+.lang-toggle span { opacity: .45; padding: 2px 6px; border-radius: 999px; transition: all .25s; }
+.lang-toggle span.on { opacity: 1; background: var(--blue); color: var(--white); }
+.nav.scrolled .lang-toggle span.on { background: var(--blue); }
+.scroll-hint i { font-style: normal; }
+
+.wa-fab {
+  position: fixed; right: 22px; bottom: 22px; z-index: 210;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan)); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 14px 38px rgba(30, 115, 190, .45);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
+  animation: fab-in .8s 2.3s cubic-bezier(.34,1.56,.64,1) backwards;
+}
+.wa-fab:hover { transform: scale(1.08) translateY(-3px); box-shadow: 0 20px 48px rgba(0,133,178,.5); }
+.wa-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(0,133,178,.55); animation: wa-pulse 2.4s infinite; }
+@keyframes wa-pulse { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.8); opacity: 0; } }
+@keyframes fab-in { from { transform: scale(0) rotate(-90deg); opacity: 0; } }
+.wa-tip {
+  position: absolute; right: calc(100% + 12px); top: 50%; translate: 0 -50%;
+  background: var(--white); color: var(--blue); border: 1px solid var(--gray-14);
+  padding: 6px 12px; border-radius: 999px; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; opacity: 0; transform: translateX(8px);
+  transition: .3s; pointer-events: none; white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(73,73,73,.15);
+}
+.wa-fab:hover .wa-tip { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .wa-ring, .wa-fab { animation: none; } }
