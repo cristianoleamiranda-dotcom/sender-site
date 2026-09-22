@@ -314,3 +314,39 @@ if (!reduce) {
     scrollTrigger: { trigger: '#nosotros', start: 'top bottom', end: 'bottom top', scrub: 0.8 },
   });
 }
+
+/* ================= v4: MENÚ DESPLEGABLE ================= */
+const burger = document.getElementById('burger');
+const menuOverlay = document.getElementById('menu-overlay');
+const menuClose = document.getElementById('menu-close');
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  burger.setAttribute('aria-expanded', String(open));
+  menuOverlay.setAttribute('aria-hidden', String(!open));
+  if (lenis) open ? lenis.stop() : lenis.start();
+}
+burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+menuClose.addEventListener('click', () => setMenu(false));
+menuOverlay.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener('click', () => setMenu(false));
+});
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+/* ================= v4: SHOT CYCLER (tomas 3D) ================= */
+import { t as i18nT } from './i18n';
+document.querySelectorAll('.shot-stage').forEach((stage, idx) => {
+  const label = stage.querySelector('.shot-label');
+  let i = idx % 4;
+  const apply = () => {
+    stage.dataset.shot = String(i);
+    if (label) label.textContent = i18nT('shot.' + (i + 1));
+  };
+  apply();
+  setInterval(() => { i = (i + 1) % 4; apply(); }, 3400);
+});
+window.addEventListener('langchange', () => {
+  document.querySelectorAll('.shot-stage').forEach((stage) => {
+    const label = stage.querySelector('.shot-label');
+    if (label) label.textContent = i18nT('shot.' + (Number(stage.dataset.shot) + 1));
+  });
+});

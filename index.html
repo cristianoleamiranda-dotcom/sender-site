@@ -7,7 +7,7 @@
   <meta name="description" content="Transmisores AM/FM, antenas HF, sistemas NAVTEX y torres para telecomunicaciones. Más de 20 años de ingeniería chilena operando donde la señal no puede fallar." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -32,13 +32,34 @@
       <a href="#capacidades" data-i18n="nav.cap">Capacidades</a>
       <a href="#espectro" data-i18n="nav.esp">Espectro</a>
       <a href="#proyectos" data-i18n="nav.proj">Proyectos</a>
-      <a href="#nosotros" data-i18n="nav.about">Nosotros</a>
       <button class="lang-toggle" id="lang-toggle" aria-label="Cambiar idioma / Switch language">
         <span data-lang="es" class="on">ES</span><span data-lang="en">EN</span>
       </button>
-      <a href="#contacto" class="nav-cta" data-i18n="nav.contact">Contacto</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
     </nav>
   </header>
+
+  <!-- MENÚ DESPLEGABLE -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <div class="menu-head">
+      <span class="mono menu-k" data-i18n="menu.title">Índice</span>
+      <button class="menu-close" id="menu-close" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="menu-list">
+      <a href="#trayectoria"><span class="mono">01</span><em data-i18n="nav.tray">Trayectoria</em></a>
+      <a href="#capacidades"><span class="mono">02</span><em data-i18n="nav.cap">Capacidades</em></a>
+      <a href="#catalogo"><span class="mono">03</span><em data-i18n="menu.cat">Catálogo</em></a>
+      <a href="#espectro"><span class="mono">04</span><em data-i18n="nav.esp">Espectro</em></a>
+      <a href="#proyectos"><span class="mono">05</span><em data-i18n="nav.proj">Proyectos</em></a>
+      <a href="#nosotros"><span class="mono">06</span><em data-i18n="nav.about">Nosotros</em></a>
+      <a href="#contacto"><span class="mono">07</span><em data-i18n="nav.contact">Contacto</em></a>
+    </nav>
+    <div class="menu-foot mono">
+      <a href="tel:+56983864148">+56 9 8386 4148</a>
+      <a href="mailto:sender@sender.cl">sender@sender.cl</a>
+      <span>Blanco Viel #1108, San Miguel, Santiago</span>
+    </div>
+  </div>
 
   <main>
 
@@ -52,14 +73,14 @@
         <p class="hero-sub" data-i18n="hero.sub">Ingeniería de radiofrecuencia para los lugares más remotos de Chile: transmisores, antenas y torres diseñados bajo estándares internacionales de broadcasting. Más de 20 años operando en defensa, radiodifusión y territorio extremo.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#espectro" data-magnetic data-i18n="hero.cta1">Sintonizar el espectro</a>
-          <a class="btn btn-ghost" href="https://wa.me/56983864148" target="_blank" rel="noopener" data-magnetic data-i18n="hero.cta2">WhatsApp directo</a>
+          <a class="btn btn-ghost" href="#catalogo" data-magnetic data-i18n="hero.cta3">Ver catálogo técnico</a>
         </div>
       </div>
       <div class="hero-stats container">
         <div class="stat"><strong><span data-count="20">0</span>+</strong><span class="stat-label" data-i18n="hero.s1">años en broadcasting</span></div>
         <div class="stat"><strong><span data-count="60">0</span> m</strong><span class="stat-label" data-i18n="hero.s2">torre Armada de Chile</span></div>
         <div class="stat"><strong><span data-count="3759">0</span> km</strong><span class="stat-label" data-i18n="hero.s3">enlace HF Rapa Nui</span></div>
-        <div class="stat"><strong>490/518 <em>kHz</em></strong><span class="stat-label" data-i18n="hero.s4">sistemas NAVTEX</span></div>
+        <div class="stat"><strong><span data-count="15">0</span></strong><span class="stat-label" data-i18n="hero.s5">familias de equipos</span></div>
       </div>
       <div class="scroll-hint" aria-hidden="true"><span></span><i data-i18n="hero.hint">Desliza</i></div>
     </section>
@@ -75,7 +96,10 @@
     <!-- TRAYECTORIA -->
     <section id="trayectoria" class="section">
       <div class="container">
-        <p class="label scramble reveal" data-i18n="tray.label" data-text="01 — Trayectoria comprobada">01 — Trayectoria comprobada</p>
+        <div class="sec-head">
+          <p class="label scramble reveal" data-i18n="tray.label" data-text="01 — Trayectoria comprobada">01 — Trayectoria comprobada</p>
+          <span class="folio mono">01 / 07</span>
+        </div>
         <h2 class="split-words reveal" data-i18n="tray.h2">Ninguna afirmación sin su respaldo.</h2>
         <p class="section-sub reveal" data-i18n="tray.sub">Tres proyectos reales que definen lo que hacemos: infraestructura crítica, ambientes hostiles y cero margen de error.</p>
         <div class="receipts">
@@ -101,46 +125,95 @@
       </div>
     </section>
 
-    <!-- CAPACIDADES -->
+    <!-- CAPACIDADES (con tomas 3D) -->
     <section id="capacidades" class="section">
       <div class="container cap-grid">
         <div class="cap-left">
           <div class="cap-sticky">
-            <p class="label scramble" data-i18n="cap.label" data-text="02 — Capacidades">02 — Capacidades</p>
+            <div class="sec-head">
+              <p class="label scramble" data-i18n="cap.label" data-text="02 — Capacidades">02 — Capacidades</p>
+              <span class="folio mono">02 / 07</span>
+            </div>
             <h2 class="split-words" data-i18n="cap.h2">Equipos que sostienen el aire de Chile.</h2>
             <p class="section-sub" data-i18n="cap.sub">Fabricación y suministro bajo normas internacionales de broadcasting. Cada equipo, diseñado para operar décadas en territorio extremo.</p>
+            <p class="cap-note mono" data-i18n="cap.note">Las fichas rotan automáticamente entre cuatro tomas de cámara: plano general, dolly in, paneo y órbita 3D.</p>
             <a class="link-arrow" href="#contacto" data-magnetic data-i18n="cap.link">Cotizar un equipo <span>→</span></a>
           </div>
         </div>
         <div class="cap-right">
           <article class="cap-card" data-tilt>
-            <div class="cap-media" data-parallax><img src="./assets/cap-transmission.jpg" alt="Base de antena AM con aisladores y radiales de tierra" loading="lazy" /></div>
+            <div class="cap-media shot-stage" data-shot="0">
+              <img src="./assets/cap-transmission.jpg" alt="Base de antena AM con aisladores y radiales de tierra" loading="lazy" />
+              <span class="shot-hud mono"><i class="rec"></i><b class="shot-label">TOMA 01 · PLANO GENERAL</b></span>
+            </div>
+            <figcaption class="fig mono" data-i18n="fig.1">FIG. 01 — Base de antena AM, radiales de tierra</figcaption>
             <div class="cap-body">
               <h3 data-i18n="cap.1.h">Transmisión AM / MF</h3>
               <p class="mono" data-i18n="cap.1.p">Transmisores estado sólido 1000/2000/5000 W · 490–1700 kHz · Clase D modular redundante · PWM bifásico · Antenas monopolo con torre aterrizada y protección atmosférica</p>
             </div>
           </article>
           <article class="cap-card" data-tilt>
-            <div class="cap-media" data-parallax><img src="./assets/cap-broadcast.jpg" alt="Sala de racks de transmisores de broadcasting" loading="lazy" /></div>
+            <div class="cap-media shot-stage" data-shot="1">
+              <img src="./assets/cap-broadcast.jpg" alt="Sala de racks de transmisores de broadcasting" loading="lazy" />
+              <span class="shot-hud mono"><i class="rec"></i><b class="shot-label">TOMA 02 · DOLLY IN</b></span>
+            </div>
+            <figcaption class="fig mono" data-i18n="fig.2">FIG. 02 — Planta de broadcasting, racks TX</figcaption>
             <div class="cap-body">
               <h3 data-i18n="cap.2.h">Plantas de broadcasting</h3>
               <p class="mono" data-i18n="cap.2.p">Transmisores FM-30 a FM-1000 · Sintetizador digital PLL 88–108 MHz · Protección ROE y temperatura · Potencia continuamente ajustable · Automatización de transmisiones</p>
             </div>
           </article>
           <article class="cap-card" data-tilt>
-            <div class="cap-media" data-parallax><img src="./assets/cap-antennas.jpg" alt="Torre de telecomunicaciones con paneles y enlaces microondas" loading="lazy" /></div>
+            <div class="cap-media shot-stage" data-shot="2">
+              <img src="./assets/cap-antennas.jpg" alt="Torre de telecomunicaciones con paneles y enlaces microondas" loading="lazy" />
+              <span class="shot-hud mono"><i class="rec"></i><b class="shot-label">TOMA 03 · PANEO</b></span>
+            </div>
+            <figcaption class="fig mono" data-i18n="fig.3">FIG. 03 — Torre de enlaces, cordillera</figcaption>
             <div class="cap-body">
               <h3 data-i18n="cap.3.h">Antenas &amp; torres</h3>
               <p class="mono" data-i18n="cap.3.p">Antena HF profesional 2–30 MHz · 1 kW · Torres contraventadas galvanizadas · Ingeniería, montaje y desmontaje · Enlaces estudio–planta STL</p>
             </div>
           </article>
           <article class="cap-card" data-tilt>
-            <div class="cap-media" data-parallax><img src="./assets/cap-rf.jpg" alt="Placa RF con inductores toroidales de cobre y conector SMA" loading="lazy" /></div>
+            <div class="cap-media shot-stage" data-shot="3">
+              <img src="./assets/cap-rf.jpg" alt="Placa RF con inductores toroidales de cobre y conector SMA" loading="lazy" />
+              <span class="shot-hud mono"><i class="rec"></i><b class="shot-label">TOMA 04 · ÓRBITA 3D</b></span>
+            </div>
+            <figcaption class="fig mono" data-i18n="fig.4">FIG. 04 — Módulo RF, bobinado toroidal</figcaption>
             <div class="cap-body">
               <h3 data-i18n="cap.4.h">Componentes RF</h3>
               <p class="mono" data-i18n="cap.4.p">Unidad de sintonía de antena (ATU) · Coaxial 1/2" Super Flex y LMR-400 · Condensadores de alta potencia · Circuitos integrados RF · Procesadores de audio</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO COMPLETO (índice editorial) -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <div class="sec-head">
+          <p class="label scramble reveal" data-i18n="cat.label" data-text="03 — Índice de catálogo">03 — Índice de catálogo</p>
+          <span class="folio mono">03 / 07</span>
+        </div>
+        <h2 class="split-words reveal" data-i18n="cat.h2">Todo el catálogo Sender, en un índice.</h2>
+        <p class="section-sub reveal" data-i18n="cat.sub">Quince familias de equipos fabricados o suministrados por Sender, según el catálogo oficial de sender.cl.</p>
+        <div class="cat-table reveal">
+          <div class="cat-row"><span class="cat-n mono">01</span><span class="cat-name" data-i18n="cat.n1">Transmisores AM de estado sólido</span><span class="cat-spec mono">1000 / 2000 / 5000 W · 490–1700 kHz</span><span class="cat-tag mono">AM</span></div>
+          <div class="cat-row"><span class="cat-n mono">02</span><span class="cat-name" data-i18n="cat.n2">Amplificador Clase D</span><span class="cat-spec mono">1000 W · alta eficiencia</span><span class="cat-tag mono">AM</span></div>
+          <div class="cat-row"><span class="cat-n mono">03</span><span class="cat-name" data-i18n="cat.n3">Transmisores FM</span><span class="cat-spec mono">FM-30 a FM-1000 · 88–108 MHz</span><span class="cat-tag mono">FM</span></div>
+          <div class="cat-row"><span class="cat-n mono">04</span><span class="cat-name" data-i18n="cat.n4">Antena HF profesional</span><span class="cat-spec mono">1.6–30 MHz · 1 kW</span><span class="cat-tag mono">HF</span></div>
+          <div class="cat-row"><span class="cat-n mono">05</span><span class="cat-name" data-i18n="cat.n5">Antenas monopolo AM / MF</span><span class="cat-spec mono">510–1700 kHz · torre aterrizada</span><span class="cat-tag mono">AM</span></div>
+          <div class="cat-row"><span class="cat-n mono">06</span><span class="cat-name" data-i18n="cat.n6">Sistema NAVTEX profesional</span><span class="cat-spec mono">490 / 518 kHz · marítimo</span><span class="cat-tag mono">MF</span></div>
+          <div class="cat-row"><span class="cat-n mono">07</span><span class="cat-name" data-i18n="cat.n7">Amplificador MF</span><span class="cat-spec mono" data-i18n="cat.s7">para AM y NAVTEX</span><span class="cat-tag mono">MF</span></div>
+          <div class="cat-row"><span class="cat-n mono">08</span><span class="cat-name" data-i18n="cat.n8">Unidad de sintonía de antena (ATU)</span><span class="cat-spec mono" data-i18n="cat.s8">acople de antena automático</span><span class="cat-tag mono">AM/HF</span></div>
+          <div class="cat-row"><span class="cat-n mono">09</span><span class="cat-name" data-i18n="cat.n9">Procesador de audio</span><span class="cat-spec mono" data-i18n="cat.s9">optimización de modulación</span><span class="cat-tag mono">AUDIO</span></div>
+          <div class="cat-row"><span class="cat-n mono">10</span><span class="cat-name" data-i18n="cat.n10">Automatización de transmisiones</span><span class="cat-spec mono" data-i18n="cat.s10">operación sin personal</span><span class="cat-tag mono">SIST</span></div>
+          <div class="cat-row"><span class="cat-n mono">11</span><span class="cat-name" data-i18n="cat.n11">Enlace estudio–planta (STL)</span><span class="cat-spec mono">AM / FM · audio profesional</span><span class="cat-tag mono">ENLACE</span></div>
+          <div class="cat-row"><span class="cat-n mono">12</span><span class="cat-name" data-i18n="cat.n12">Torres contraventadas galvanizadas</span><span class="cat-spec mono" data-i18n="cat.s12">ingeniería, montaje y desmontaje</span><span class="cat-tag mono">INFRA</span></div>
+          <div class="cat-row"><span class="cat-n mono">13</span><span class="cat-name" data-i18n="cat.n13">Cable coaxial 1/2" Super Flex · LMR-400</span><span class="cat-spec mono" data-i18n="cat.s13">baja pérdida profesional</span><span class="cat-tag mono">RF</span></div>
+          <div class="cat-row"><span class="cat-n mono">14</span><span class="cat-name" data-i18n="cat.n14">Condensadores de alta potencia</span><span class="cat-spec mono" data-i18n="cat.s14">RF y transmisión</span><span class="cat-tag mono">COMP</span></div>
+          <div class="cat-row"><span class="cat-n mono">15</span><span class="cat-name" data-i18n="cat.n15">Circuitos integrados RF</span><span class="cat-spec mono" data-i18n="cat.s15">electrónica profesional</span><span class="cat-tag mono">COMP</span></div>
         </div>
       </div>
     </section>
@@ -151,9 +224,10 @@
         <div class="container espectro-inner">
           <div class="espectro-head">
             <div>
-              <p class="label" data-i18n="esp.label">03 — Espectro radioeléctrico</p>
+              <p class="label" data-i18n="esp.label">04 — Espectro radioeléctrico</p>
               <h2 data-i18n="esp.h2">Tu scroll es la perilla de sintonía.</h2>
             </div>
+            <span class="folio mono light">04 / 07</span>
           </div>
 
           <div class="dial">
@@ -210,7 +284,7 @@
       <div class="proj-pin">
         <div class="proj-head container">
           <div>
-            <p class="label" data-i18n="proj.label">04 — Proyectos en terreno</p>
+            <p class="label" data-i18n="proj.label">05 — Proyectos en terreno</p>
             <h2 data-i18n="proj.h2">Donde el mapa se acaba,<br />empieza Sender.</h2>
           </div>
           <span class="proj-count mono"><b id="proj-now">01</b> / 04</span>
@@ -254,18 +328,25 @@
 
     <!-- NOSOTROS -->
     <section id="nosotros" class="section">
-      <div class="container about-grid">
-        <div class="about-media">
-          <div class="about-frame" data-parallax><img src="./assets/about.jpg" alt="Técnico Sender soldando una placa RF en el taller" loading="lazy" /></div>
+      <div class="container">
+        <div class="sec-head">
+          <p class="label scramble reveal" data-i18n="about.label" data-text="06 — Quiénes somos">06 — Quiénes somos</p>
+          <span class="folio mono">06 / 07</span>
         </div>
-        <div class="about-text">
-          <p class="label scramble reveal" data-i18n="about.label" data-text="05 — Quiénes somos">05 — Quiénes somos</p>
-          <h2 class="split-words reveal" data-i18n="about.h2">Ingenieros de aire, fabricantes de señal.</h2>
-          <p class="reveal" data-i18n="about.p1">Somos una empresa chilena con más de 20 años de experiencia en telecomunicaciones y radiodifusión, especializada en soluciones de ingeniería, equipamiento RF y sistemas de transmisión.</p>
-          <p class="reveal" data-i18n="about.p2">Desarrollamos y suministramos tecnología para proyectos nacionales e internacionales, entregando soluciones confiables en equipos AM/FM/HF/NAVTEX, antenas profesionales y sistemas de comunicación diseñados bajo estándares de calidad internacionales.</p>
-          <div class="about-points reveal">
-            <div class="point"><strong data-i18n="about.pt1.h">Misión</strong><p data-i18n="about.pt1.p">Tecnología y soluciones en telecomunicaciones adaptadas a cada cliente, con innovación y soporte técnico en radiodifusión.</p></div>
-            <div class="point"><strong data-i18n="about.pt2.h">Alcance</strong><p data-i18n="about.pt2.p">Instalaciones en Chile y proyectos internacionales, de la planta urbana al territorio extremo.</p></div>
+        <div class="about-grid">
+          <div class="about-media">
+            <div class="about-frame" data-parallax><img src="./assets/about.jpg" alt="Técnico Sender soldando una placa RF en el taller" loading="lazy" /></div>
+            <figcaption class="fig mono" data-i18n="fig.5">FIG. 05 — Taller Sender, San Miguel: bobinado y calibración RF</figcaption>
+          </div>
+          <div class="about-text">
+            <h2 class="split-words reveal" data-i18n="about.h2">Ingenieros de aire, fabricantes de señal.</h2>
+            <blockquote class="pull reveal" data-i18n="about.quote">«Donde la señal no puede fallar, ahí instalamos.»</blockquote>
+            <p class="reveal" data-i18n="about.p1">Somos una empresa chilena con más de 20 años de experiencia en telecomunicaciones y radiodifusión, especializada en soluciones de ingeniería, equipamiento RF y sistemas de transmisión.</p>
+            <p class="reveal" data-i18n="about.p2">Desarrollamos y suministramos tecnología para proyectos nacionales e internacionales, entregando soluciones confiables en equipos AM/FM/HF/NAVTEX, antenas profesionales y sistemas de comunicación diseñados bajo estándares de calidad internacionales.</p>
+            <div class="about-points reveal">
+              <div class="point"><strong data-i18n="about.pt1.h">Misión</strong><p data-i18n="about.pt1.p">Tecnología y soluciones en telecomunicaciones adaptadas a cada cliente, con innovación y soporte técnico en radiodifusión.</p></div>
+              <div class="point"><strong data-i18n="about.pt2.h">Alcance</strong><p data-i18n="about.pt2.p">Instalaciones en Chile y proyectos internacionales, de la planta urbana al territorio extremo.</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -274,9 +355,30 @@
     <!-- CONTACTO -->
     <section id="contacto" class="section contacto">
       <div class="container">
-        <p class="label reveal" data-i18n="con.label">06 — Contacto</p>
+        <div class="sec-head light-head">
+          <p class="label reveal" data-i18n="con.label">07 — Contacto</p>
+          <span class="folio mono light">07 / 07</span>
+        </div>
         <h2 class="split-words reveal" data-i18n="con.h2">Tu próximo enlace empieza aquí.</h2>
         <p class="section-sub reveal" data-i18n="con.sub">Radiodifusión, defensa, comunicaciones marítimas o infraestructura crítica: la ingeniería la ponemos nosotros.</p>
+
+        <div class="cta-band reveal">
+          <div class="cta-left">
+            <h3 data-i18n="cta.h">Hablemos de su proyecto.</h3>
+            <p data-i18n="cta.p">Ingeniería propia, fabricación bajo normas internacionales y soporte técnico directo del equipo que diseña sus equipos.</p>
+            <ul class="cta-list">
+              <li data-i18n="cta.b1">Respuesta en menos de 24 h</li>
+              <li data-i18n="cta.b2">Ingeniería y fabricación propias</li>
+              <li data-i18n="cta.b3">Normas internacionales de broadcasting</li>
+            </ul>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="mailto:sender@sender.cl?subject=Solicitud%20de%20cotizaci%C3%B3n%20t%C3%A9cnica" data-magnetic data-i18n="cta.a1">Solicitar cotización técnica</a>
+            <a class="btn btn-outline-light" href="https://wa.me/56983864148" target="_blank" rel="noopener" data-magnetic data-i18n="cta.a2">Agendar llamada técnica</a>
+            <a class="btn btn-outline-light" href="tel:+56983864148" data-magnetic data-i18n="cta.a3">Llamar al taller</a>
+          </div>
+        </div>
+
         <div class="contact-grid">
           <a class="contact-card reveal" href="https://wa.me/56983864148" target="_blank" rel="noopener" data-tilt>
             <span class="label" data-i18n="con.c1.l">WhatsApp / Celular</span>
@@ -293,7 +395,6 @@
             <small>San Miguel, Santiago, Chile</small>
           </div>
         </div>
-        <a class="btn btn-light btn-big reveal" href="https://wa.me/56983864148" target="_blank" rel="noopener" data-magnetic data-i18n="con.cta">Cotizar proyecto por WhatsApp</a>
       </div>
     </section>
 
@@ -305,7 +406,7 @@
     <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
-    <span class="wa-tip mono" data-i18n="wa.label">WhatsApp</span>
+    <span class="wa-tip mono" data-i18n="wa.tip">Mesa de ventas · +56 9 8386 4148</span>
   </a>
 
   <footer class="footer">

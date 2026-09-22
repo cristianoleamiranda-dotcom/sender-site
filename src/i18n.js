@@ -79,7 +79,37 @@ const DICT = {
     'foot.1': 'SENDER · BIS SpA — Telecomunicaciones y Broadcasting',
     'foot.2': '© 2026 · Datos del sitio original sender.cl',
     'foot.top': 'Volver arriba ↑',
-    'wa.label': 'WhatsApp',
+    'wa.tip': 'Mesa de ventas · +56 9 8386 4148',
+    'menu.title': 'Índice', 'menu.cat': 'Catálogo',
+    'hero.cta3': 'Ver catálogo técnico', 'hero.s5': 'familias de equipos',
+    'cap.note': 'Las fichas rotan automáticamente entre cuatro tomas de cámara: plano general, dolly in, paneo y órbita 3D.',
+    'fig.1': 'FIG. 01 — Base de antena AM, radiales de tierra',
+    'fig.2': 'FIG. 02 — Planta de broadcasting, racks TX',
+    'fig.3': 'FIG. 03 — Torre de enlaces, cordillera',
+    'fig.4': 'FIG. 04 — Módulo RF, bobinado toroidal',
+    'fig.5': 'FIG. 05 — Taller Sender, San Miguel: bobinado y calibración RF',
+    'shot.1': 'TOMA 01 · PLANO GENERAL', 'shot.2': 'TOMA 02 · DOLLY IN',
+    'shot.3': 'TOMA 03 · PANEO', 'shot.4': 'TOMA 04 · ÓRBITA 3D',
+    'cat.label': '03 — Índice de catálogo',
+    'cat.h2': 'Todo el catálogo Sender, en un índice.',
+    'cat.sub': 'Quince familias de equipos fabricados o suministrados por Sender, según el catálogo oficial de sender.cl.',
+    'cat.n1': 'Transmisores AM de estado sólido', 'cat.n2': 'Amplificador Clase D',
+    'cat.n3': 'Transmisores FM', 'cat.n4': 'Antena HF profesional',
+    'cat.n5': 'Antenas monopolo AM / MF', 'cat.n6': 'Sistema NAVTEX profesional',
+    'cat.n7': 'Amplificador MF', 'cat.n8': 'Unidad de sintonía de antena (ATU)',
+    'cat.n9': 'Procesador de audio', 'cat.n10': 'Automatización de transmisiones',
+    'cat.n11': 'Enlace estudio–planta (STL)', 'cat.n12': 'Torres contraventadas galvanizadas',
+    'cat.n13': 'Cable coaxial 1/2" Super Flex · LMR-400', 'cat.n14': 'Condensadores de alta potencia',
+    'cat.n15': 'Circuitos integrados RF',
+    'cat.s7': 'para AM y NAVTEX', 'cat.s8': 'acople de antena automático',
+    'cat.s9': 'optimización de modulación', 'cat.s10': 'operación sin personal',
+    'cat.s12': 'ingeniería, montaje y desmontaje', 'cat.s13': 'baja pérdida profesional',
+    'cat.s14': 'RF y transmisión', 'cat.s15': 'electrónica profesional',
+    'cta.h': 'Hablemos de su proyecto.',
+    'cta.p': 'Ingeniería propia, fabricación bajo normas internacionales y soporte técnico directo del equipo que diseña sus equipos.',
+    'cta.b1': 'Respuesta en menos de 24 h', 'cta.b2': 'Ingeniería y fabricación propias', 'cta.b3': 'Normas internacionales de broadcasting',
+    'cta.a1': 'Solicitar cotización técnica', 'cta.a2': 'Agendar llamada técnica', 'cta.a3': 'Llamar al taller',
+    'about.quote': '«Donde la señal no puede fallar, ahí instalamos.»',
     'doc.title': 'Sender — Ingeniería RF y Broadcasting',
   },
   en: {
@@ -157,7 +187,37 @@ const DICT = {
     'foot.1': 'SENDER · BIS SpA — Telecommunications & Broadcasting',
     'foot.2': '© 2026 · Data from the original sender.cl site',
     'foot.top': 'Back to top ↑',
-    'wa.label': 'WhatsApp',
+    'wa.tip': 'Sales desk · +56 9 8386 4148',
+    'menu.title': 'Index', 'menu.cat': 'Catalog',
+    'hero.cta3': 'View technical catalog', 'hero.s5': 'equipment families',
+    'cap.note': 'Product cards automatically rotate through four camera shots: wide, dolly in, pan and 3D orbit.',
+    'fig.1': 'FIG. 01 — AM antenna base, ground radials',
+    'fig.2': 'FIG. 02 — Broadcasting plant, TX racks',
+    'fig.3': 'FIG. 03 — Link tower, mountain range',
+    'fig.4': 'FIG. 04 — RF module, toroidal winding',
+    'fig.5': 'FIG. 05 — Sender workshop, San Miguel: RF winding and calibration',
+    'shot.1': 'SHOT 01 · WIDE', 'shot.2': 'SHOT 02 · DOLLY IN',
+    'shot.3': 'SHOT 03 · PAN', 'shot.4': 'SHOT 04 · 3D ORBIT',
+    'cat.label': '03 — Catalog index',
+    'cat.h2': 'The entire Sender catalog, as an index.',
+    'cat.sub': 'Fifteen equipment families manufactured or supplied by Sender, according to the official sender.cl catalog.',
+    'cat.n1': 'Solid-state AM transmitters', 'cat.n2': 'Class D amplifier',
+    'cat.n3': 'FM transmitters', 'cat.n4': 'Professional HF antenna',
+    'cat.n5': 'AM / MF monopole antennas', 'cat.n6': 'Professional NAVTEX system',
+    'cat.n7': 'MF amplifier', 'cat.n8': 'Antenna tuning unit (ATU)',
+    'cat.n9': 'Audio processor', 'cat.n10': 'Broadcast automation',
+    'cat.n11': 'Studio–transmitter link (STL)', 'cat.n12': 'Galvanized guyed towers',
+    'cat.n13': '1/2" Super Flex · LMR-400 coaxial cable', 'cat.n14': 'High-power capacitors',
+    'cat.n15': 'RF integrated circuits',
+    'cat.s7': 'for AM and NAVTEX', 'cat.s8': 'automatic antenna matching',
+    'cat.s9': 'modulation optimization', 'cat.s10': 'unattended operation',
+    'cat.s12': 'engineering, assembly and dismantling', 'cat.s13': 'professional low loss',
+    'cat.s14': 'RF and transmission', 'cat.s15': 'professional electronics',
+    'cta.h': 'Let’s talk about your project.',
+    'cta.p': 'In-house engineering, manufacturing under international standards and technical support directly from the team that designs your equipment.',
+    'cta.b1': 'Response in under 24 h', 'cta.b2': 'In-house engineering and manufacturing', 'cta.b3': 'International broadcasting standards',
+    'cta.a1': 'Request a technical quote', 'cta.a2': 'Schedule a technical call', 'cta.a3': 'Call the workshop',
+    'about.quote': '“Where the signal cannot fail, that is where we install.”',
     'doc.title': 'Sender — RF Engineering & Broadcasting',
   },
 };
@@ -168,6 +228,10 @@ export function splitWords(el) {
 }
 
 let current = localStorage.getItem('sender-lang') || 'es';
+
+export function t(key) {
+  return (DICT[current] && DICT[current][key]) || DICT.es[key] || key;
+}
 
 export function applyLang(lang, animate = false) {
   current = lang;
@@ -195,6 +259,7 @@ export function applyLang(lang, animate = false) {
       gsap.from(el.querySelectorAll('.w > span'), { yPercent: 115, duration: 0.7, stagger: 0.035, ease: 'power4.out' });
     });
   }
+  window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 
 /* init */
