@@ -67,13 +67,22 @@
     <section id="hero">
       <div class="hero-bg" data-parallax><img src="./assets/hero-wide.jpg" alt="Estación transmisora costera con mástil arriostrado al anochecer" /></div>
       <div class="hero-veil"></div>
-      <div class="hero-content container">
-        <p class="hero-eyebrow label scramble" data-i18n="hero.eyebrow" data-text="BIS SpA · Broadcasting &amp; Telecomunicaciones · Chile">BIS SpA · Broadcasting &amp; Telecomunicaciones · Chile</p>
-        <h1 class="hero-title split-words" data-i18n="hero.title">La señal no puede fallar.</h1>
-        <p class="hero-sub" data-i18n="hero.sub">Ingeniería de radiofrecuencia para los lugares más remotos de Chile: transmisores, antenas y torres diseñados bajo estándares internacionales de broadcasting. Más de 20 años operando en defensa, radiodifusión y territorio extremo.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#espectro" data-magnetic data-i18n="hero.cta1">Sintonizar el espectro</a>
-          <a class="btn btn-ghost" href="#catalogo" data-magnetic data-i18n="hero.cta3">Ver catálogo técnico</a>
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow label scramble" data-i18n="hero.eyebrow" data-text="BIS SpA · Broadcasting &amp; Telecomunicaciones · Chile">BIS SpA · Broadcasting &amp; Telecomunicaciones · Chile</p>
+          <h1 class="hero-title split-words" data-i18n="hero.title">La señal no puede fallar.</h1>
+          <p class="hero-sub" data-i18n="hero.sub">Ingeniería de radiofrecuencia para los lugares más remotos de Chile: transmisores, antenas y torres diseñados bajo estándares internacionales de broadcasting. Más de 20 años operando en defensa, radiodifusión y territorio extremo.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#espectro" data-magnetic data-i18n="hero.cta1">Sintonizar el espectro</a>
+            <a class="btn btn-ghost" href="#catalogo" data-magnetic data-i18n="hero.cta3">Ver catálogo técnico</a>
+          </div>
+        </div>
+        <div class="tx-stage" id="tx-stage">
+          <span class="tx-glow" aria-hidden="true"></span>
+          <video id="tx-video" muted loop playsinline preload="metadata" poster="./assets/tx-hero-frame.jpg"></video>
+          <img id="tx-fallback" src="./assets/tx-hero-frame.jpg" alt="Transmisor AM Sender flotando en estudio" />
+          <span class="tx-shadow" aria-hidden="true"></span>
+          <span class="shot-hud tx-hud mono"><i class="rec"></i><b id="tx-hud-label">RENDER BASE · SLOT DE VIDEO 360° LISTO</b></span>
         </div>
       </div>
       <div class="hero-stats container">

@@ -506,3 +506,44 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
 .btn-outline-light { border: 1px solid rgba(255,255,255,.45); color: var(--white); }
 .btn-outline-light:hover { background: rgba(255,255,255,.14); }
 @media (max-width: 860px) { .cta-band { grid-template-columns: 1fr; } }
+
+/* ============ v5: HERO TRANSMISOR FLOTANTE 360 ============ */
+.hero-grid {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.05fr .95fr;
+  gap: clamp(24px, 4vw, 64px); align-items: center;
+  padding-top: 140px; padding-bottom: 40px;
+}
+.hero-copy { max-width: 640px; }
+.tx-stage {
+  position: relative; width: 100%; aspect-ratio: 4 / 5; max-height: 70svh;
+  margin-inline: auto; transform-style: preserve-3d; will-change: transform;
+  animation: txfloat 6s ease-in-out infinite;
+}
+@keyframes txfloat { 50% { translate: 0 -14px; } }
+.tx-stage video, .tx-stage img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; border-radius: 18px;
+}
+#tx-video { opacity: 0; transition: opacity .7s; }
+#tx-fallback { opacity: 1; transition: opacity .7s; }
+.tx-stage.has-video #tx-video { opacity: 1; }
+.tx-stage.has-video #tx-fallback { opacity: 0; }
+.tx-glow {
+  position: absolute; inset: -14%; z-index: -1; filter: blur(8px);
+  background: radial-gradient(50% 45% at 50% 46%, rgba(30,115,190,.38), rgba(0,133,178,.14) 46%, transparent 72%);
+  animation: glowpulse 5s ease-in-out infinite;
+}
+@keyframes glowpulse { 50% { opacity: .6; transform: scale(1.06); } }
+.tx-shadow {
+  position: absolute; left: 14%; right: 14%; bottom: 3%; height: 26px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.55), transparent 72%);
+  filter: blur(9px); animation: shadowpulse 6s ease-in-out infinite;
+}
+@keyframes shadowpulse { 50% { transform: scaleX(.86); opacity: .7; } }
+.tx-hud { top: auto; bottom: 14px; right: 14px; left: auto; }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; padding-top: 120px; }
+  .tx-stage { order: -1; aspect-ratio: 1 / 1; max-height: 44svh; }
+}
+@media (prefers-reduced-motion: reduce) { .tx-stage, .tx-glow, .tx-shadow { animation: none; } }

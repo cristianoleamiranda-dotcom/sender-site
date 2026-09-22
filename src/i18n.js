@@ -110,6 +110,8 @@ const DICT = {
     'cta.b1': 'Respuesta en menos de 24 h', 'cta.b2': 'Ingeniería y fabricación propias', 'cta.b3': 'Normas internacionales de broadcasting',
     'cta.a1': 'Solicitar cotización técnica', 'cta.a2': 'Agendar llamada técnica', 'cta.a3': 'Llamar al taller',
     'about.quote': '«Donde la señal no puede fallar, ahí instalamos.»',
+    'hero.video.on': 'TX-360 · VIDEO SINCRONIZADO AL SCROLL',
+    'hero.video.off': 'RENDER BASE · SLOT DE VIDEO 360° LISTO',
     'doc.title': 'Sender — Ingeniería RF y Broadcasting',
   },
   en: {
@@ -218,6 +220,8 @@ const DICT = {
     'cta.b1': 'Response in under 24 h', 'cta.b2': 'In-house engineering and manufacturing', 'cta.b3': 'International broadcasting standards',
     'cta.a1': 'Request a technical quote', 'cta.a2': 'Schedule a technical call', 'cta.a3': 'Call the workshop',
     'about.quote': '“Where the signal cannot fail, that is where we install.”',
+    'hero.video.on': 'TX-360 · SCROLL-SYNCED VIDEO',
+    'hero.video.off': 'BASE RENDER · 360° VIDEO SLOT READY',
     'doc.title': 'Sender — RF Engineering & Broadcasting',
   },
 };

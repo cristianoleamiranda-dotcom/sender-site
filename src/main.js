@@ -350,3 +350,53 @@ window.addEventListener('langchange', () => {
     if (label) label.textContent = i18nT('shot.' + (Number(stage.dataset.shot) + 1));
   });
 });
+
+/* ================= v5: HÉROE TRANSMISOR 360 — VIDEO SCRUB + 3D ================= */
+(() => {
+  const stage = document.getElementById('tx-stage');
+  const video = document.getElementById('tx-video');
+  const hud = document.getElementById('tx-hud-label');
+  if (!stage || !video) return;
+  const VPATH = './assets/videos/tx-hero.mp4';
+  let hasVideo = false;
+
+  const setHud = () => { hud.textContent = i18nT(hasVideo ? 'hero.video.on' : 'hero.video.off'); };
+  fetch(VPATH, { method: 'HEAD' })
+    .then((r) => {
+      if (!r.ok) throw new Error('no-video');
+      video.src = VPATH;
+      video.addEventListener('loadedmetadata', () => {
+        hasVideo = true; stage.classList.add('has-video'); setHud();
+      }, { once: true });
+      video.load();
+    })
+    .catch(() => setHud());
+  window.addEventListener('langchange', setHud);
+
+  /* scrub: el scroll reproduce el video 360 y adapta el plano al diseño */
+  let sp = 0, px = 0, py = 0;
+  const applyStage = () => {
+    gsap.set(stage, {
+      scale: 1 - sp * 0.16,
+      rotateY: -12 + sp * 12 + px * 10,
+      rotateX: -py * 7,
+      transformPerspective: 1100,
+    });
+    if (hasVideo && video.duration && isFinite(video.duration)) {
+      video.currentTime = sp * Math.max(0, video.duration - 0.05);
+    }
+  };
+  ScrollTrigger.create({
+    trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.4,
+    onUpdate: (self) => { sp = self.progress; applyStage(); },
+  });
+  if (finePointer && !reduce) {
+    stage.addEventListener('pointermove', (e) => {
+      const r = stage.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - 0.5;
+      py = (e.clientY - r.top) / r.height - 0.5;
+      applyStage();
+    });
+    stage.addEventListener('pointerleave', () => { px = 0; py = 0; applyStage(); });
+  }
+})();
