@@ -633,3 +633,29 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
   container: none; font-size: 11px; letter-spacing: .06em; color: rgba(255,255,255,.5);
   padding: 0 clamp(20px, 4vw, 40px) 26px; text-align: center;
 }
+
+/* ============ v11: copy limpio + patrones OpenDesign/ScrollCraft ============ */
+.about-points { display: flex; flex-direction: column; gap: 16px; padding-bottom: 150px; }
+.point {
+  position: sticky; top: calc(96px + var(--i, 0) * 18px);
+  background: var(--white); border: 1px solid rgba(73,73,73,.16);
+  border-top: 2px solid var(--blue); border-radius: 16px;
+  padding: 20px 22px; box-shadow: 0 -12px 32px rgba(13,20,32,.08);
+}
+.about-media { position: relative; }
+.type-ring { position: absolute; right: -22px; bottom: -22px; width: 132px; height: 132px; z-index: 2; pointer-events: none; }
+.type-ring::before { content: ''; position: absolute; inset: 14px; background: var(--white); border: 1px solid rgba(73,73,73,.2); border-radius: 50%; }
+.type-ring svg { width: 100%; height: 100%; animation: tring 26s linear infinite; }
+.type-ring text { font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em; fill: var(--cyan); }
+@keyframes tring { to { transform: rotate(360deg); } }
+.pull { position: relative; display: inline-block; z-index: 0; }
+.pull::after {
+  content: ''; position: absolute; left: -2px; right: -2px; bottom: .08em; height: .4em;
+  background: rgba(0,133,178,.20); z-index: -1; transform: scaleX(0); transform-origin: left;
+  transition: transform 1.1s cubic-bezier(.22,1,.36,1) .2s;
+}
+.pull.swept::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  .type-ring svg { animation: none; }
+  .pull::after { transition: none; transform: scaleX(1); }
+}

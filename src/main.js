@@ -497,3 +497,13 @@ window.addEventListener('langchange', () => {
     }).catch(() => {});
   });
 })();
+
+/* ================= v11: marker sweep en pull quote (patron OpenDesign) ================= */
+(() => {
+  const q = document.querySelector('.pull');
+  if (!q) return;
+  ScrollTrigger.create({
+    trigger: q, start: 'top 85%', once: true,
+    onEnter: () => q.classList.add('swept'),
+  });
+})();
