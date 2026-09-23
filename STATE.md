@@ -117,3 +117,7 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Dossier-head con brand-og.jpg de fondo; caps editoriales 260-380px en >=761.
 - v26.1: backbone 960x1440 crf24 (4.1MB); loader 0.9s+0.55s (LCP hero ~1.5s antes).
 - Audit CI verde ambos runs; perf headless 0.56-0.61 = deuda aceptada y documentada (CHECKLIST E).
+
+## v26.2 — 2026-09-23 — fix 404 brand-og
+- url('./assets/brand-og.jpg') dentro del CSS bundleado resolvia a /assets/assets/ (404) en loader y dossier-head.
+- Fix: <i class="brand-bg"> con background-image inline en HTML (ruta relativa a la pagina) + z-index de contenido.
