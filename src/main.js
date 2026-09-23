@@ -409,13 +409,19 @@ window.addEventListener('langchange', () => {
   const hint = document.querySelector('.cine-hint');
   const chs = document.querySelectorAll('.ch');
   if (!pin || !video) return;
-  const VPATH = './assets/videos/tx-hero.mp4';
-  fetch(VPATH, { method: 'HEAD' }).then((r) => {
-    if (!r.ok) throw new Error('no-video');
-    video.src = VPATH;
-    video.addEventListener('loadedmetadata', () => pin.classList.add('has-video'), { once: true });
-    video.load();
-  }).catch(() => {});
+  const VPATHS = ['./assets/videos/cine.mp4', './assets/videos/tx-hero.mp4'];
+  (async () => {
+    for (const V of VPATHS) {
+      try {
+        const r = await fetch(V, { method: 'HEAD' });
+        if (!r.ok) continue;
+        video.src = V;
+        video.addEventListener('loadedmetadata', () => pin.classList.add('has-video'), { once: true });
+        video.load();
+        return;
+      } catch (e) { /* probar siguiente slot */ }
+    }
+  })();
 
   ScrollTrigger.create({
     trigger: '#cine', start: 'top top', end: '+=240%',
@@ -427,7 +433,7 @@ window.addEventListener('langchange', () => {
       }
       if (bar) bar.style.transform = 'scaleX(' + p + ')';
       if (hint) hint.classList.toggle('off', p > 0.06);
-      const ci = Math.min(chs.length - 1, Math.floor(p * chs.length));
+      const ci = p < 0.32 ? 0 : p < 0.55 ? 1 : p < 0.82 ? 2 : 3;
       chs.forEach((c, i) => c.classList.toggle('active', i === ci));
     },
   });
@@ -454,4 +460,21 @@ window.addEventListener('langchange', () => {
       }
     },
   });
+})();
+
+/* ================= v8: video ambiental en banda CTA ================= */
+(() => {
+  const band = document.querySelector('.cta-band');
+  const cv = document.getElementById('cta-video');
+  if (!band || !cv) return;
+  const V = './assets/videos/cta-loop.mp4';
+  fetch(V, { method: 'HEAD' }).then((r) => {
+    if (!r.ok) throw new Error('no-video');
+    cv.src = V;
+    cv.addEventListener('canplay', () => {
+      band.classList.add('has-video');
+      cv.play().catch(() => {});
+    }, { once: true });
+    cv.load();
+  }).catch(() => {});
 })();

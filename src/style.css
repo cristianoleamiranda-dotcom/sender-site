@@ -591,3 +591,12 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
 .propagation.has-video #prop-map { opacity: 0; }
 .prop-km { position: relative; z-index: 2; }
 .prop-wrap { padding: clamp(70px, 10vh, 120px) 0 0; }
+
+/* ============ v8: video ambiental CTA ============ */
+.cta-band { position: relative; overflow: hidden; }
+.cta-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1.2s; z-index: 0; filter: saturate(1.05);
+}
+.cta-band.has-video .cta-video { opacity: .3; }
+.cta-left, .cta-actions { position: relative; z-index: 1; }
