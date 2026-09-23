@@ -37,7 +37,7 @@ if (reduce && loader) {
 } else if (loader) {
   const c = { v: 0 };
   gsap.to(c, {
-    v: 100, duration: 1.5, ease: 'power2.inOut',
+    v: 100, duration: 0.9, ease: 'power2.inOut',
     onUpdate: () => {
       loaderCount.textContent = String(Math.round(c.v)).padStart(3, '0');
       loaderBar.style.width = c.v + '%';
@@ -45,7 +45,7 @@ if (reduce && loader) {
     },
     onComplete: () => {
       gsap.to(loader, {
-        yPercent: -100, duration: 0.9, ease: 'power4.inOut',
+        yPercent: -100, duration: 0.55, ease: 'power4.inOut',
         onComplete: () => { loader.remove(); bootHero(); },
       });
     },
