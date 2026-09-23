@@ -73,3 +73,8 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Grado de color por capitulo: #film-layer[data-ch] varia filter del film (4 looks).
 - Media provisorio envuelto en .mon-frame (scanlines + vignette + tag REC parpadeante) = look intencional de monitor.
 - Lab sincronizado con v19+v20 (ambas URLs muestran el mismo diseno corregido).
+
+## v21 — 2026-09-23 — perf movil + cirugia de layout (feedback capturas 17:52/17:53)
+- Lag: en touch se desactivan backdrop-filter de hojas/dossier, grain animado, #cglow/#cursor y el loop Three.js (bg3d COARSE guard); scrub del film con throttle (delta > .0022) y cine.mp4 re-codificado con keyframes densos (-g 8) para seeks baratos = scrub continuo.
+- Espacios sin contenido: .prod movil sin min-height 210vh (media 16/10 estatica + copy debajo); #espectro movil sin pin (height auto, .espectro-pin static); film-breath 24vh en touch.
+- Dimensiones: .shot-stage full-bleed movil (100vw x 92svh, sin radio); .prod-media aspect 16/10 sin sticky; type-ring (circulo blanco) oculto en touch; pull/dropcap ajustados; about-grid gap 26px.
