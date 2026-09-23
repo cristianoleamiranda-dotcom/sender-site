@@ -357,20 +357,25 @@ window.addEventListener('langchange', () => {
   const video = document.getElementById('tx-video');
   const hud = document.getElementById('tx-hud-label');
   if (!stage || !video) return;
-  const VPATH = './assets/videos/tx-hero.mp4';
+  const VPATHS = ['./assets/videos/hero-cut.mp4', './assets/videos/cine.mp4', './assets/videos/tx-hero.mp4'];
   let hasVideo = false;
 
   const setHud = () => { hud.textContent = i18nT(hasVideo ? 'hero.video.on' : 'hero.video.off'); };
-  fetch(VPATH, { method: 'HEAD' })
-    .then((r) => {
-      if (!r.ok) throw new Error('no-video');
-      video.src = VPATH;
-      video.addEventListener('loadedmetadata', () => {
-        hasVideo = true; stage.classList.add('has-video'); setHud();
-      }, { once: true });
-      video.load();
-    })
-    .catch(() => setHud());
+  (async () => {
+    for (const V of VPATHS) {
+      try {
+        const r = await fetch(V, { method: 'HEAD' });
+        if (!r.ok) continue;
+        video.src = V;
+        video.addEventListener('loadedmetadata', () => {
+          hasVideo = true; stage.classList.add('has-video'); setHud();
+        }, { once: true });
+        video.load();
+        return;
+      } catch (e) { /* siguiente slot */ }
+    }
+    setHud();
+  })();
   window.addEventListener('langchange', setHud);
 
   /* scrub: el scroll reproduce el video 360 y adapta el plano al diseño */
@@ -433,7 +438,7 @@ window.addEventListener('langchange', () => {
       }
       if (bar) bar.style.transform = 'scaleX(' + p + ')';
       if (hint) hint.classList.toggle('off', p > 0.06);
-      const ci = p < 0.32 ? 0 : p < 0.55 ? 1 : p < 0.82 ? 2 : 3;
+      const ci = p < 0.45 ? 0 : p < 0.8 ? 1 : 2;
       chs.forEach((c, i) => c.classList.toggle('active', i === ci));
     },
   });
@@ -491,7 +496,14 @@ window.addEventListener('langchange', () => {
       v.src = V;
       v.addEventListener('canplay', () => {
         if (card) card.classList.add('has-video');
-        v.play().catch(() => {});
+        ScrollTrigger.create({
+          trigger: card, start: 'top 85%', end: 'bottom 15%', scrub: 0.35,
+          onUpdate: (self) => {
+            if (v.duration && isFinite(v.duration)) {
+              v.currentTime = self.progress * Math.max(0, v.duration - 0.05);
+            }
+          },
+        });
       }, { once: true });
       v.load();
     }).catch(() => {});
@@ -516,4 +528,36 @@ window.addEventListener('langchange', () => {
   sync();
   window.addEventListener('langchange', sync);
   document.querySelectorAll('[data-lang]').forEach((s) => s.addEventListener('click', () => setTimeout(sync, 0)));
+})();
+
+/* ================= v13: productos keynote (4 vistas scrub o video) ================= */
+(() => {
+  document.querySelectorAll('.prod').forEach((sec) => {
+    const imgs = sec.querySelectorAll('.prod-stack img');
+    const dots = sec.querySelectorAll('.prod-dots i');
+    const vid = sec.querySelector('.prod-video');
+    const slot = vid && vid.dataset.slot;
+    if (slot) {
+      const V = './assets/videos/' + slot + '.mp4';
+      fetch(V, { method: 'HEAD' }).then((r) => {
+        if (!r.ok) throw new Error('no-video');
+        vid.src = V;
+        vid.addEventListener('loadedmetadata', () => sec.classList.add('has-video'), { once: true });
+        vid.load();
+      }).catch(() => {});
+    }
+    ScrollTrigger.create({
+      trigger: sec, start: 'top top', end: 'bottom bottom', scrub: 0.35,
+      onUpdate: (self) => {
+        const p = self.progress;
+        if (sec.classList.contains('has-video') && vid.duration && isFinite(vid.duration)) {
+          vid.currentTime = p * Math.max(0, vid.duration - 0.05);
+          return;
+        }
+        const idx = Math.min(imgs.length - 1, Math.floor(p * imgs.length));
+        imgs.forEach((im, i) => im.classList.toggle('on', i === idx));
+        dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+      },
+    });
+  });
 })();
