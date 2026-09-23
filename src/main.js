@@ -736,7 +736,7 @@ window.addEventListener('langchange', () => {
 
 /* ================= v20: monitores REC para media provisorio ================= */
 (() => {
-  const sel = '.prod-stack img, .prod-media video, .prop-video';
+  const sel = '.prov-none';
   const wrap = () => document.querySelectorAll(sel).forEach((m) => {
     if (m.parentElement && m.parentElement.classList.contains('mon-frame')) return;
     const f = document.createElement('div'); f.className = 'mon-frame';
@@ -744,4 +744,42 @@ window.addEventListener('langchange', () => {
   });
   wrap();
   window.addEventListener('langchange', wrap);
+})();
+
+/* ================= v26: KNOB de sintonia arrastrable (interaccion firma) ================= */
+(() => {
+  const knob = document.getElementById('dial-knob');
+  if (!knob) return;
+  const pinned = () => window.matchMedia('(min-width: 901px)').matches;
+  const spec = document.getElementById('espectro');
+  const range = () => ScrollTrigger.getAll().find((t) => t.trigger === spec) || null;
+  let p = 0, dragging = false, lx = 0, ly = 0;
+  const knobSync = () => {
+    const deg = ((specState.band + specState.ratio) / bands.length) * 1080;
+    knob.style.setProperty('--rot', deg.toFixed(1) + 'deg');
+    knob.setAttribute('aria-valuenow', String(Math.round((specState.band + specState.ratio) / bands.length * 100)));
+  };
+  const apply = (np) => {
+    p = Math.min(0.999, Math.max(0, np));
+    const st = range();
+    if (pinned() && st) window.scrollTo({ top: st.start + p * (st.end - st.start), behavior: 'auto' });
+    else { updateSpectrum(p); knobSync(); }
+  };
+  const cur = () => {
+    const st = range();
+    return st && pinned() ? (window.scrollY - st.start) / (st.end - st.start) : (specState.band + specState.ratio) / bands.length;
+  };
+  knob.addEventListener('pointerdown', (e) => { dragging = true; lx = e.clientX; ly = e.clientY; knob.setPointerCapture(e.pointerId); e.preventDefault(); });
+  knob.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - lx, dy = e.clientY - ly; lx = e.clientX; ly = e.clientY;
+    apply(cur() + (dx - dy) * 0.00045);
+  });
+  const up = () => { dragging = false; };
+  knob.addEventListener('pointerup', up); knob.addEventListener('pointercancel', up);
+  knob.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { apply(cur() + 0.02); e.preventDefault(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { apply(cur() - 0.02); e.preventDefault(); }
+  });
+  (function loop() { knobSync(); requestAnimationFrame(loop); })();
 })();
