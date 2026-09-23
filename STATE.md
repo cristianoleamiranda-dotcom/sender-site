@@ -66,3 +66,10 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Film: scrub con interpolacion rAF (lerp .14) = suave sin saltos; Ken Burns scale 1.1→1 scrub global; grado saturate/contrast/brightness; grain SVG animado (overlay 5%).
 - HUD: scramble-decode del nombre de seccion al cambiar capitulo.
 - Movil: hero-stats 2x2 hairline, sheets padding reducido, #prop-map fondo oscuro + textos claros, .prop-km cyan mono sin overlap, duotone grade en media provisorio.
+
+## v20 — 2026-09-23 — calidad de film + fuentes self-hosted + monitores REC
+- Causa raiz "tipografia no moderna": head original cargaba Inter/Fraunces via Google; body era Inter. Ahora TODO self-hosted: Space Grotesk 500/600/700, Manrope 400-700, IBM Plex Mono 400/500, Fraunces 400-600+ital (14 woff2 en /assets/fonts) — sin dependencia de CDN.
+- cine.mp4 remasterizado: origen 640x960@711kb/s → hqdn3d + lanczos 1080x1620 + unsharp + x264 CRF18 (3.5MB). Original en /home/user/backup-videos/cine-original.mp4.
+- Grado de color por capitulo: #film-layer[data-ch] varia filter del film (4 looks).
+- Media provisorio envuelto en .mon-frame (scanlines + vignette + tag REC parpadeante) = look intencional de monitor.
+- Lab sincronizado con v19+v20 (ambas URLs muestran el mismo diseno corregido).
