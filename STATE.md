@@ -43,3 +43,12 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - 404.html de marca ("Señal perdida en esta frecuencia").
 - Refuerzo cascade: productos 1 columna en <=900px con !important (confirmado por field recording).
 - i18n paridad verificada: 192 claves ES = 192 EN, sin faltantes.
+
+## v17 — dirección B fusionada a main (decisión del usuario 2026-09-23)
+- Film como backbone global scrubbed por scroll de todo el documento + HUD lateral de capítulos.
+- Botones 100% transparentes (glass hover cian).
+- Sheets graphite-glass y windows limpios: el film se aprecia entre y bajo el contenido.
+- Film-breaths (46vh de película sola con línea mono) entre bloques clave.
+- Dossier técnico overlay (15 familias) fuera del flujo de scroll: menú = selector de capítulos.
+- Tilt 3D de sheets al entrar (rotateX 3.2° scrubbed).
+- Arquitectura: UNA página (el film es el viaje); menú anclas = capítulos; densidad = overlays.

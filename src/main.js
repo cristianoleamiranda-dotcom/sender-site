@@ -435,7 +435,7 @@ window.addEventListener('langchange', () => {
   const hint = document.querySelector('.cine-hint');
   const chs = document.querySelectorAll('.ch');
   if (!pin || !video) return;
-  const VPATHS = ['./assets/videos/cine.mp4', './assets/videos/tx-hero.mp4'];
+  const VPATHS = []; /* lab: el film global toma el rol */
   (async () => {
     for (const V of VPATHS) {
       try {
@@ -622,4 +622,54 @@ window.addEventListener('langchange', () => {
     });
   }, { threshold: 0.05 });
   vids.forEach((v) => io.observe(v));
+})();
+
+
+/* ================= LAB v1: film como backbone global + HUD ================= */
+(() => {
+  const v = document.getElementById('film-video');
+  const prog = document.getElementById('hud-progress');
+  const chEl = document.getElementById('hud-chapter');
+  const secEl = document.getElementById('hud-section');
+  if (!v) return;
+  const V = './assets/videos/cine.mp4';
+  fetch(V, { method: 'HEAD' }).then((r) => { if (!r.ok) throw new Error('x'); v.src = V; v.load(); }).catch(() => {});
+  const CH = [0, .32, .55, .82];
+  ScrollTrigger.create({
+    trigger: document.documentElement, start: 0, end: 'max', scrub: .4,
+    onUpdate: (self) => {
+      const p = self.progress;
+      if (v.duration && isFinite(v.duration)) v.currentTime = p * Math.max(0, v.duration - .05);
+      if (prog) prog.style.height = (p * 100).toFixed(2) + '%';
+      const ci = p < CH[1] ? 0 : p < CH[2] ? 1 : p < CH[3] ? 2 : 3;
+      if (chEl) chEl.textContent = 'CH 0' + (ci + 1);
+    },
+  });
+  document.querySelectorAll('section[id]').forEach((sec) => {
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 55%', end: 'bottom 55%',
+      onToggle: (st) => { if (st.isActive && secEl) secEl.textContent = (sec.id || '').toUpperCase(); },
+    });
+  });
+})();
+
+/* ================= LAB v2: dossier overlay + tilt 3D de sheets ================= */
+(() => {
+  const d = document.getElementById('dossier');
+  const open = document.getElementById('dossier-open');
+  const close = document.getElementById('dossier-close');
+  if (d && open && close) {
+    const set = (v) => { d.classList.toggle('open', v); d.setAttribute('aria-hidden', String(!v)); if (v) close.focus(); else open.focus(); };
+    open.addEventListener('click', () => set(true));
+    close.addEventListener('click', () => set(false));
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.classList.contains('open')) set(false); });
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.utils.toArray('.sheet-glass').forEach((sh) => {
+      gsap.fromTo(sh, { rotateX: 3.2, transformPerspective: 1200 }, {
+        rotateX: 0, ease: 'none',
+        scrollTrigger: { trigger: sh, start: 'top 92%', end: 'top 40%', scrub: .4 },
+      });
+    });
+  }
 })();
