@@ -730,3 +730,6 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
 }
 body.has-pointer #cglow { opacity: 1; }
 .prod-stack, .prod-video { will-change: transform; }
+
+/* ============ v15: hero realmente full-bleed (grid static = ancla #hero) ============ */
+#hero .hero-grid { position: static; z-index: 2; }
