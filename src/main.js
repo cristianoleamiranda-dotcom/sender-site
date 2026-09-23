@@ -507,3 +507,13 @@ window.addEventListener('langchange', () => {
     onEnter: () => q.classList.add('swept'),
   });
 })();
+
+/* ================= v12: aria-pressed en switch de idioma ================= */
+(() => {
+  const sync = () => document.querySelectorAll('[data-lang]').forEach((s) => {
+    s.setAttribute('aria-pressed', String(s.classList.contains('on')));
+  });
+  sync();
+  window.addEventListener('langchange', sync);
+  document.querySelectorAll('[data-lang]').forEach((s) => s.addEventListener('click', () => setTimeout(sync, 0)));
+})();

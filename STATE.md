@@ -29,3 +29,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 ## Completado sin marca (infra, no contenido)
 - SEO/OG: description, og:title/description/image/url, twitter:card, theme-color, favicon.
 - Slots auto-detectados por HEAD fetch; los provisorios viven en los mismos nombres de slot.
+
+## v12 — performance + SEO técnico + a11y (2026-09-23)
+- Imágenes reales recomprimidas q4 max-1600px: 3.3 MB → 2.1 MB (−36%); logo 2048→512px (142→11 KB).
+- robots.txt + sitemap.xml (hreflang es/en) + canonical + og:locale/es_CL + alternate en_US.
+- JSON-LD Organization (dirección, tel, email, sameAs sender.cl).
+- Skip-link ES/EN, :focus-visible cian, aria-pressed en switch ES/EN (burger ya tenía aria-expanded).
