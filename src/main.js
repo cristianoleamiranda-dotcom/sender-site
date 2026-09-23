@@ -673,3 +673,31 @@ window.addEventListener('langchange', () => {
     });
   }
 })();
+
+/* ================= v18: line-mask reveals + parallax depth + tilt 3D titular ================= */
+(() => {
+  gsap.utils.toArray('.section-sub, .prod-lead').forEach((el) => {
+    el.classList.add('lm');
+    ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => el.classList.add('in') });
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.utils.toArray('.film-breath span').forEach((el) => {
+    gsap.fromTo(el, { y: 46 }, {
+      y: -46, ease: 'none',
+      scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: .5 },
+    });
+  });
+  gsap.utils.toArray('.sheet-glass, .window').forEach((sh) => {
+    gsap.fromTo(sh, { scale: .985 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { trigger: sh, start: 'top 90%', end: 'top 45%', scrub: .4 },
+    });
+  });
+  const ht = document.querySelector('#hero h1');
+  if (ht && window.matchMedia('(pointer: fine)').matches) {
+    addEventListener('pointermove', (e) => {
+      const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+      ht.style.transform = 'perspective(900px) rotateY(' + (x * 5).toFixed(2) + 'deg) rotateX(' + (-y * 4).toFixed(2) + 'deg)';
+    }, { passive: true });
+  }
+})();
