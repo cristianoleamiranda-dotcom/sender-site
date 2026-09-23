@@ -356,6 +356,47 @@
           </article>
         </div>
       </div>
+      <div class="container prop-wrap">
+        <div class="sec-head">
+          <p class="label scramble reveal" data-i18n="prop.label" data-text="Propagación HF · Santiago → Rapa Nui">Propagación HF · Santiago → Rapa Nui</p>
+          <span class="folio mono">05 / 07</span>
+        </div>
+        <div class="propagation reveal">
+          <video class="prop-video" id="prop-video" muted playsinline preload="metadata"></video>
+          <svg id="prop-map" viewBox="0 0 1000 420" role="img" aria-label="Mapa de propagación de señal HF entre Santiago e Isla de Pascua">
+            <defs>
+              <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0085b2" />
+                <stop offset="100%" stop-color="#1e73be" />
+              </linearGradient>
+              <radialGradient id="pulse-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#0085b2" stop-opacity=".9" />
+                <stop offset="100%" stop-color="#0085b2" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <g stroke="rgba(73,73,73,0.10)" stroke-width="1">
+              <line x1="0" y1="70" x2="1000" y2="70" /><line x1="0" y1="140" x2="1000" y2="140" />
+              <line x1="0" y1="210" x2="1000" y2="210" /><line x1="0" y1="280" x2="1000" y2="280" />
+              <line x1="0" y1="350" x2="1000" y2="350" />
+              <line x1="100" y1="0" x2="100" y2="420" /><line x1="300" y1="0" x2="300" y2="420" />
+              <line x1="500" y1="0" x2="500" y2="420" /><line x1="700" y1="0" x2="700" y2="420" />
+              <line x1="900" y1="0" x2="900" y2="420" />
+            </g>
+            <path d="M 850 20 L 880 60 L 860 110 L 885 160 L 865 220 L 890 280 L 860 340 L 875 400 L 840 400 L 830 330 L 845 260 L 825 190 L 845 120 L 828 60 Z"
+                  fill="rgba(30,115,190,0.10)" stroke="rgba(30,115,190,0.45)" stroke-width="1.5" />
+            <circle id="island-pulse" cx="140" cy="215" r="26" fill="url(#pulse-grad)" opacity="0" />
+            <circle cx="140" cy="215" r="5" fill="#0085b2" />
+            <circle cx="852" cy="196" r="5" fill="#1e73be" />
+            <path id="link-path" d="M 852 196 C 650 40, 350 40, 140 215" fill="none" stroke="url(#arc-grad)" stroke-width="2.5" stroke-linecap="round" />
+            <text x="868" y="228" fill="rgba(73,73,73,0.75)" font-size="15" font-family="IBM Plex Mono, monospace">Santiago · Planta TX</text>
+            <text x="156" y="248" fill="rgba(73,73,73,0.75)" font-size="15" font-family="IBM Plex Mono, monospace">Rapa Nui · RX HF</text>
+            <text x="430" y="88" fill="rgba(73,73,73,0.45)" font-size="13" font-family="IBM Plex Mono, monospace">Océano Pacífico — banda HF 2–30 MHz</text>
+          </svg>
+          <div class="prop-km">
+            <span id="km">0</span> km <span data-i18n="prop.km">recorridos por la señal</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- NOSOTROS -->

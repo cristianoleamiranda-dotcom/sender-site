@@ -432,3 +432,26 @@ window.addEventListener('langchange', () => {
     },
   });
 })();
+
+/* ================= v7: slot video propagacion Rapa Nui ================= */
+(() => {
+  const prop = document.querySelector('.propagation');
+  const pv = document.getElementById('prop-video');
+  if (!prop || !pv) return;
+  const V = './assets/videos/prop-rapanui.mp4';
+  let ok = false;
+  fetch(V, { method: 'HEAD' }).then((r) => {
+    if (!r.ok) throw new Error('no-video');
+    pv.src = V;
+    pv.addEventListener('loadedmetadata', () => { ok = true; prop.classList.add('has-video'); }, { once: true });
+    pv.load();
+  }).catch(() => {});
+  ScrollTrigger.create({
+    trigger: '#proyectos', start: 'top 62%', end: 'bottom 78%', scrub: 0.4,
+    onUpdate: (self) => {
+      if (ok && pv.duration && isFinite(pv.duration)) {
+        pv.currentTime = self.progress * Math.max(0, pv.duration - 0.05);
+      }
+    },
+  });
+})();

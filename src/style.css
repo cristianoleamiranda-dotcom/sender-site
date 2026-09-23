@@ -579,3 +579,15 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
 .cine-hint.off { opacity: 0; }
 /* hero stage: marco cine negro para que el video funda */
 .tx-stage video { background: #000; }
+
+/* ============ v7: slot video propagacion (flight map) ============ */
+.propagation { position: relative; }
+.prop-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  border-radius: 22px; opacity: 0; transition: opacity .8s; background: #000; z-index: 0;
+}
+.propagation.has-video .prop-video { opacity: 1; }
+#prop-map { transition: opacity .8s; position: relative; z-index: 1; }
+.propagation.has-video #prop-map { opacity: 0; }
+.prop-km { position: relative; z-index: 2; }
+.prop-wrap { padding: clamp(70px, 10vh, 120px) 0 0; }
