@@ -635,20 +635,44 @@ window.addEventListener('langchange', () => {
   const V = './assets/videos/cine.mp4';
   fetch(V, { method: 'HEAD' }).then((r) => { if (!r.ok) throw new Error('x'); v.src = V; v.load(); }).catch(() => {});
   const CH = [0, .32, .55, .82];
+  let tgt = 0, curT = 0;
+  const tickFilm = () => {
+    curT += (tgt - curT) * 0.14;
+    if (v.duration && isFinite(v.duration)) v.currentTime = curT * Math.max(0, v.duration - .05);
+    requestAnimationFrame(tickFilm);
+  };
+  requestAnimationFrame(tickFilm);
   ScrollTrigger.create({
     trigger: document.documentElement, start: 0, end: 'max', scrub: .4,
     onUpdate: (self) => {
       const p = self.progress;
-      if (v.duration && isFinite(v.duration)) v.currentTime = p * Math.max(0, v.duration - .05);
+      tgt = p;
       if (prog) prog.style.height = (p * 100).toFixed(2) + '%';
       const ci = p < CH[1] ? 0 : p < CH[2] ? 1 : p < CH[3] ? 2 : 3;
       if (chEl) chEl.textContent = 'CH 0' + (ci + 1);
     },
   });
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.fromTo(v, { scale: 1.1 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { trigger: document.documentElement, start: 0, end: 'max', scrub: .8 },
+    });
+  }
+  let decTok = 0;
+  const GL = '\u25ae\u25af/<>\u00b7\u201401#';
+  const decodeSec = (txt) => {
+    const tok = ++decTok; let f = 0; const total = 12;
+    const iv = setInterval(() => {
+      if (tok !== decTok) { clearInterval(iv); return; }
+      f++;
+      secEl.textContent = txt.split('').map((c, i) => (c === ' ' ? ' ' : (i < (f / total) * txt.length ? c : GL[(Math.random() * GL.length) | 0]))).join('');
+      if (f >= total) { clearInterval(iv); secEl.textContent = txt; }
+    }, 30);
+  };
   document.querySelectorAll('section[id]').forEach((sec) => {
     ScrollTrigger.create({
       trigger: sec, start: 'top 55%', end: 'bottom 55%',
-      onToggle: (st) => { if (st.isActive && secEl) secEl.textContent = (sec.id || '').toUpperCase(); },
+      onToggle: (st) => { if (st.isActive && secEl) decodeSec((sec.id || '').toUpperCase()); },
     });
   });
 })();
