@@ -736,7 +736,7 @@ window.addEventListener('langchange', () => {
 
 /* ================= v20: monitores REC para media provisorio ================= */
 (() => {
-  const sel = '.cap-card video, .cap-card img, .slide video, .slide img, .receipt video, .receipt img';
+  const sel = '.prod-stack img, .prod-media video, .prop-video';
   const wrap = () => document.querySelectorAll(sel).forEach((m) => {
     if (m.parentElement && m.parentElement.classList.contains('mon-frame')) return;
     const f = document.createElement('div'); f.className = 'mon-frame';
