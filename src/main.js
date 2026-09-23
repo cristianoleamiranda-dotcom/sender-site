@@ -478,3 +478,22 @@ window.addEventListener('langchange', () => {
     cv.load();
   }).catch(() => {});
 })();
+
+/* ================= v10: videos provisionales en fichas de capacidades ================= */
+(() => {
+  document.querySelectorAll('.cap-video').forEach((v) => {
+    const slot = v.dataset.slot;
+    if (!slot) return;
+    const card = v.closest('.cap-card');
+    const V = './assets/videos/' + slot + '.mp4';
+    fetch(V, { method: 'HEAD' }).then((r) => {
+      if (!r.ok) throw new Error('no-video');
+      v.src = V;
+      v.addEventListener('canplay', () => {
+        if (card) card.classList.add('has-video');
+        v.play().catch(() => {});
+      }, { once: true });
+      v.load();
+    }).catch(() => {});
+  });
+})();
