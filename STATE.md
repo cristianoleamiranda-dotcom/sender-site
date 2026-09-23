@@ -90,3 +90,8 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Cap-cards desktop: fila editorial (media 4/3 duotono grayscale a la izquierda + texto), SIN tag REC/scanlines/shot-hud en web; color al hover.
 - CI nuevo: .github/workflows/audit.yml = Lighthouse CI (2 runs + upload temporary-public-storage) + html-validate + budget bundle <700KB en cada push.
 - Kit: SKILL.md (skill de departamento) + benchmark Awwwards 2026 en scorecard.
+
+## v23.1 — 2026-09-23 — bg3d diferido + auditoria continua operativa
+- three.js sale del main bundle: import('./bg3d.js') en idle y solo puntero fino → main JS 708.869 B → 178.81 kB (gzip 66.35).
+- audit.yml verde (run 04fd4b7): html-validate ok, budget ok, LHCI 2 runs upload temporary-public-storage; a11y pasa (error-level), perf en warn (headless CI con video scrub).
+- Reportes LHCI temporales del run: 1790200028471-3165 / 1790200029090-60447 (.report.html).
