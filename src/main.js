@@ -400,3 +400,35 @@ window.addEventListener('langchange', () => {
     stage.addEventListener('pointerleave', () => { px = 0; py = 0; applyStage(); });
   }
 })();
+
+/* ================= v6: PRODUCT FILM PINEADO (scrub + capítulos) ================= */
+(() => {
+  const pin = document.querySelector('.cine-pin');
+  const video = document.getElementById('cine-video');
+  const bar = document.getElementById('cine-bar');
+  const hint = document.querySelector('.cine-hint');
+  const chs = document.querySelectorAll('.ch');
+  if (!pin || !video) return;
+  const VPATH = './assets/videos/tx-hero.mp4';
+  fetch(VPATH, { method: 'HEAD' }).then((r) => {
+    if (!r.ok) throw new Error('no-video');
+    video.src = VPATH;
+    video.addEventListener('loadedmetadata', () => pin.classList.add('has-video'), { once: true });
+    video.load();
+  }).catch(() => {});
+
+  ScrollTrigger.create({
+    trigger: '#cine', start: 'top top', end: '+=240%',
+    pin: '.cine-pin', scrub: 0.35, anticipatePin: 1,
+    onUpdate: (self) => {
+      const p = self.progress;
+      if (pin.classList.contains('has-video') && video.duration && isFinite(video.duration)) {
+        video.currentTime = p * Math.max(0, video.duration - 0.05);
+      }
+      if (bar) bar.style.transform = 'scaleX(' + p + ')';
+      if (hint) hint.classList.toggle('off', p > 0.06);
+      const ci = Math.min(chs.length - 1, Math.floor(p * chs.length));
+      chs.forEach((c, i) => c.classList.toggle('active', i === ci));
+    },
+  });
+})();
