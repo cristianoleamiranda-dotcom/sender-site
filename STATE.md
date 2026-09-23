@@ -127,3 +127,8 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Catalogo declutter: 4 link-arrow "Cotizar este equipo" repetidos eliminados (queda CTA unico en contacto + cap-link); dossier-open agrupado centrado al final; paddings de prod-copy reducidos.
 - Sheets >=761 mas legibles sobre frames busy: gradiente .66/.50 + blur 14 (antes .46/.26 + 10).
 - BUILD tag v27. Nuevo repo sender-fx-lab (demos P01/P14/P15/P07/P06, Pages propia).
+
+## v28 / v28.1 — 2026-09-23 — CIERRE COMPLETO (web entera segun criterios)
+- v28: fotos 1600px q5 (-30% peso total), tx-hero.mp4 fuera del repo (backup local), VPATHS limpio, osciloscopio rAF solo con #espectro visible (IntersectionObserver), content-visibility:auto en #trayectoria/#capacidades/#nosotros/#contacto, BUILD v28. Audit: bundle 179.963 B ok, perf headless 0.59 (deuda documentada con mitigaciones).
+- v28.1: stacks de los 4 productos con fotos REALES del cliente (10 refs p-* reemplazadas); p-*.jpg, render-*.jpg, tx-hero-frame.jpg y cine-poster.jpg eliminados del repo. CERO imagenes de ejemplo en produccion.
+- Estado final checklist: A-F cumplidos salvo perf headless >=.70 (deuda aceptada con plan) y videos finales prod-* opcionales (los stacks ya usan fotos reales; los slots de video quedan listos para recibirlos).
