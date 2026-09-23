@@ -89,3 +89,14 @@ background changes, lens distortion, camera shake, flicker.
 - [ ] ≤ 8 MB · 24 fps · 6 s
 - [ ] Sin texto/logos quemados
 - [ ] Nombre de archivo según la tabla de slots
+
+---
+
+## Plantilla Seedance 2.5 / Veo v3 (videos finales de los 5 slots)
+Estructura de prompt que usan los tutorials 2026 (camera-first, un solo movimiento por toma):
+`[SUBJECT] + [CAMERA MOVE único] + [LIGHTING paleta] + [MATERIALS] + [DURACIÓN/fps] + [LOOP] + [NEGATIVOS]`
+Ejemplo slot cap-am:
+> Blue Sender AM transmitter rack on pure black, slow dolly-in 40 mm, soft top key with
+> blue #1E73BE and cyan #0085B2 rim lights, brushed aluminum and copper coil materials,
+> 6 s 24 fps, perfect loop, no text no people no camera shake.
+Regla: un movimiento de cámara por toma (dolly OR orbit OR macro glide), nunca dos.

@@ -719,3 +719,14 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
   .prod-media { height: 68svh; top: 8svh; border-radius: 18px; }
   .prod-copy { padding: 4vh 0 12vh; }
 }
+
+/* ============ v14: cursor glow ============ */
+#cglow {
+  position: fixed; left: 0; top: 0; width: 340px; height: 340px;
+  margin: -170px 0 0 -170px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,133,178,.10), transparent 62%);
+  pointer-events: none; z-index: 60; mix-blend-mode: screen;
+  opacity: 0; transition: opacity .5s; will-change: transform;
+}
+body.has-pointer #cglow { opacity: 1; }
+.prod-stack, .prod-video { will-change: transform; }

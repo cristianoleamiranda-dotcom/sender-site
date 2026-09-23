@@ -558,7 +558,31 @@ window.addEventListener('langchange', () => {
         const idx = Math.min(imgs.length - 1, Math.floor(p * imgs.length));
         imgs.forEach((im, i) => im.classList.toggle('on', i === idx));
         dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+        const tf = 'scale(' + (1 + p * 0.10).toFixed(4) + ') rotateY(' + ((p - 0.5) * 5).toFixed(2) + 'deg)';
+        const stack = sec.querySelector('.prod-stack');
+        if (stack) stack.style.transform = tf;
+        if (vid) vid.style.transform = tf;
       },
     });
   });
+})();
+
+/* ================= v14: cursor glow (pointer fine only) ================= */
+(() => {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const g = document.createElement('div');
+  g.id = 'cglow';
+  document.body.appendChild(g);
+  let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y, seen = false;
+  addEventListener('pointermove', (e) => {
+    x = e.clientX; y = e.clientY;
+    if (!seen) { seen = true; document.body.classList.add('has-pointer'); }
+  }, { passive: true });
+  const tick = () => {
+    cx += (x - cx) * 0.12; cy += (y - cy) * 0.12;
+    g.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+    requestAnimationFrame(tick);
+  };
+  tick();
 })();
