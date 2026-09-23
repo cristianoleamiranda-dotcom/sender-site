@@ -369,6 +369,7 @@ window.addEventListener('langchange', () => {
         video.src = V;
         video.addEventListener('loadedmetadata', () => {
           hasVideo = true; stage.classList.add('has-video'); setHud();
+          try { video.currentTime = 0.9; } catch (e) { /* frame inicial visible */ }
         }, { once: true });
         video.load();
         return;
@@ -497,7 +498,7 @@ window.addEventListener('langchange', () => {
       v.addEventListener('canplay', () => {
         if (card) card.classList.add('has-video');
         ScrollTrigger.create({
-          trigger: card, start: 'top 85%', end: 'bottom 15%', scrub: 0.35,
+          trigger: card, start: 'top 90%', end: 'bottom 0%', scrub: 0.35,
           onUpdate: (self) => {
             if (v.duration && isFinite(v.duration)) {
               v.currentTime = self.progress * Math.max(0, v.duration - 0.05);
