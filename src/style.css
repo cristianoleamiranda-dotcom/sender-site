@@ -873,6 +873,11 @@ h1, h2, h3 { letter-spacing: -0.015em; }
   .sheet-glass, .sheet { padding: 36px 18px; border-radius: 22px; margin: 7vh auto; }
 }
 
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 400; font-display: swap; src: url('./fonts/fra-400i.woff2') format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url('./fonts/fra-500i.woff2') format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/fra-400.woff2') format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/fra-500.woff2') format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/fra-600.woff2') format('woff2'); }
 /* ============ v20: fuentes self-hosted + monitores REC + grado por capitulo ============ */
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/pxm-400.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/pxm-500.woff2') format('woff2'); }
