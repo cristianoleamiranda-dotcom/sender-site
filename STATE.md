@@ -95,3 +95,11 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - three.js sale del main bundle: import('./bg3d.js') en idle y solo puntero fino → main JS 708.869 B → 178.81 kB (gzip 66.35).
 - audit.yml verde (run 04fd4b7): html-validate ok, budget ok, LHCI 2 runs upload temporary-public-storage; a11y pasa (error-level), perf en warn (headless CI con video scrub).
 - Reportes LHCI temporales del run: 1790200028471-3165 / 1790200029090-60447 (.report.html).
+
+## v24 — 2026-09-23 — assets REALES del usuario integrados
+- 10 fotos finales sobreescriben slots: cap-transmission/broadcast/antennas/rf (cap-cards), cap-critical (exhibit+band thumb), about (nosotros), hero/hero-wide (hero+poster film), proj-am/proj-stl (slides proyectos).
+- brand-og.jpg (logo SENDER sobre mar tormentoso) = og:image/social.
+- effect.mp4 (GoPro 11 Mini turntable 60fps, provisto por usuario) = capitulo 2 del backbone: cine.mp4 = desarme remasterizado + 7s GoPro concat (12.9s, crf23, -g8).
+- cap-*.mp4 regenerados Ken Burns desde las fotos reales (0.8-1.4MB c/u).
+- Badges ▸PROVISORIO retirados de las 4 cap-cards (contenido real); mon-frame REC ahora solo en media provisorio (prod/prop).
+- Provisionales restantes: prod-* (4 stacks) y prop-rapanui.
