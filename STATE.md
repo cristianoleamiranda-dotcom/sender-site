@@ -121,3 +121,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 ## v26.2 — 2026-09-23 — fix 404 brand-og
 - url('./assets/brand-og.jpg') dentro del CSS bundleado resolvia a /assets/assets/ (404) en loader y dossier-head.
 - Fix: <i class="brand-bg"> con background-image inline en HTML (ruta relativa a la pagina) + z-index de contenido.
+
+## v27 — 2026-09-23 — declutter segun feedback visual 19:38
+- GoPro FUERA del backbone (el usuario: "no debe estar el video de la gopro; la idea era copiar el despliegue y sincronizarlo con el scroll"): cine.mp4 = solo desarme remasterizado 5.9s/2.7MB; su lenguaje turntable queda replicado como P14 keynote scroll-sync y demo en sender-fx-lab.
+- Catalogo declutter: 4 link-arrow "Cotizar este equipo" repetidos eliminados (queda CTA unico en contacto + cap-link); dossier-open agrupado centrado al final; paddings de prod-copy reducidos.
+- Sheets >=761 mas legibles sobre frames busy: gradiente .66/.50 + blur 14 (antes .46/.26 + 10).
+- BUILD tag v27. Nuevo repo sender-fx-lab (demos P01/P14/P15/P07/P06, Pages propia).
