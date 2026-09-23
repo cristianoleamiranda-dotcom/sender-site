@@ -78,3 +78,8 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Lag: en touch se desactivan backdrop-filter de hojas/dossier, grain animado, #cglow/#cursor y el loop Three.js (bg3d COARSE guard); scrub del film con throttle (delta > .0022) y cine.mp4 re-codificado con keyframes densos (-g 8) para seeks baratos = scrub continuo.
 - Espacios sin contenido: .prod movil sin min-height 210vh (media 16/10 estatica + copy debajo); #espectro movil sin pin (height auto, .espectro-pin static); film-breath 24vh en touch.
 - Dimensiones: .shot-stage full-bleed movil (100vw x 92svh, sin radio); .prod-media aspect 16/10 sin sticky; type-ring (circulo blanco) oculto en touch; pull/dropcap ajustados; about-grid gap 26px.
+
+## v22 — 2026-09-23 — modo "sitio de escritorio" en movil (capturas 18:00)
+- Diagnostico: capturas 18:00 muestran nav con links desktop + layout 2 col en 415px → usuario navega con "Sitio de escritorio" de Chrome (viewport ~830-1350 CSS) → los media max-900 y pointer:coarse no aplicaban.
+- Fix: breakpoint max-1100px replica layout movil (cap-grid/about-grid/prod 1 col, prod-media 16/10, shot-stage full-bleed, pull) + low-power (sin backdrop-filter/grain/cursor/3D, breath 24vh, type-ring off) tambien por ancho.
+- bg3d COARSE = (pointer: coarse), (max-width: 1100px).
