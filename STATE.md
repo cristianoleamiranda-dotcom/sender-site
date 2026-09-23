@@ -58,3 +58,11 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Agrupacion: `.cap-right` = 1 panel con divisores internos; `.receipts` = 1 panel de 3 columnas (apilado en movil); `hero-stats` = fila hairline; `.prod-specs` = filas hairline 2 col.
 - Aire: `.sheet-glass` margin 10vh + blur 12px (menos vidrio pesado, mas pelicula).
 - Efectos nuevos: line-mask reveal en `.section-sub`/`.prod-lead`; parallax depth en `.film-breath` y sheets (scale .985→1); tilt 3D del titular hero con pointer.
+
+## v19 — 2026-09-23 — contraste movil + tipografia + grado filmico
+- FIX raiz: ids legacy (#capacidades/#proyectos/#nosotros) pintaban fondo blanco y ganaban por especificidad sobre .sheet-glass/.window → ahora transparentes (capturas moviles del usuario).
+- Nav .scrolled = glass oscuro (antes blanco); logo/links claros.
+- Tipografia moderna CARGADA via Google Fonts: Space Grotesk (display) + Manrope (body) + IBM Plex Mono (labels); antes declaradas pero sin <link> → caia a system-ui.
+- Film: scrub con interpolacion rAF (lerp .14) = suave sin saltos; Ken Burns scale 1.1→1 scrub global; grado saturate/contrast/brightness; grain SVG animado (overlay 5%).
+- HUD: scramble-decode del nombre de seccion al cambiar capitulo.
+- Movil: hero-stats 2x2 hairline, sheets padding reducido, #prop-map fondo oscuro + textos claros, .prop-km cyan mono sin overlap, duotone grade en media provisorio.
