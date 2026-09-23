@@ -600,3 +600,14 @@ body.menu-open .menu-list a:nth-child(7) { transition-delay: .48s; }
 }
 .cta-band.has-video .cta-video { opacity: .3; }
 .cta-left, .cta-actions { position: relative; z-index: 1; }
+
+/* ============ v9: comunidad WhatsApp ============ */
+.cta-community {
+  margin-top: 6px; font-size: 12.5px; letter-spacing: .08em; color: #cfe9f7;
+  text-decoration: none; border-bottom: 1px solid rgba(207,233,247,.4);
+  align-self: flex-start; padding-bottom: 2px; transition: color .3s, border-color .3s;
+}
+.cta-community:hover { color: var(--white); border-color: var(--white); }
+.footer-inner { gap: 18px; flex-wrap: wrap; }
+.footer-comm { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.66); text-decoration: none; transition: color .3s; }
+.footer-comm:hover { color: var(--white); }
