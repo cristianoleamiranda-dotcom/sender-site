@@ -52,3 +52,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Dossier técnico overlay (15 familias) fuera del flujo de scroll: menú = selector de capítulos.
 - Tilt 3D de sheets al entrar (rotateX 3.2° scrubbed).
 - Arquitectura: UNA página (el film es el viaje); menú anclas = capítulos; densidad = overlays.
+
+## v18 — 2026-09-23 — minimal transparente + criterios Awwwards/3D/inmersivo
+- Tarjetas SIN relleno ni blur propio: `.cap-card`, `.receipt`, `.slide`, `.point`, `.cta-band` transparentes con borde hairline.
+- Agrupacion: `.cap-right` = 1 panel con divisores internos; `.receipts` = 1 panel de 3 columnas (apilado en movil); `hero-stats` = fila hairline; `.prod-specs` = filas hairline 2 col.
+- Aire: `.sheet-glass` margin 10vh + blur 12px (menos vidrio pesado, mas pelicula).
+- Efectos nuevos: line-mask reveal en `.section-sub`/`.prod-lead`; parallax depth en `.film-breath` y sheets (scale .985→1); tilt 3D del titular hero con pointer.
