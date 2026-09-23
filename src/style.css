@@ -733,3 +733,11 @@ body.has-pointer #cglow { opacity: 1; }
 
 /* ============ v15: hero realmente full-bleed (grid static = ancla #hero) ============ */
 #hero .hero-grid { position: static; z-index: 2; }
+
+/* ============ v16: loader wave draw + refuerzo mobile + perf ============ */
+.loader-wave { width: 180px; display: block; margin: 14px auto 10px; }
+@media (max-width: 900px) {
+  .prod { grid-template-columns: 1fr !important; min-height: 210vh; gap: 0; }
+  .prod-media { height: 68svh; top: 8svh; border-radius: 18px; }
+  .prod-copy { padding: 6vh 0 14vh; }
+}

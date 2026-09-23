@@ -14,6 +14,13 @@ const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matc
 const loader = document.getElementById('loader');
 const loaderCount = document.getElementById('loader-count');
 const loaderBar = document.getElementById('loader-bar');
+const loaderWave = document.getElementById('loader-wave-path');
+let WAVE_LEN = 0;
+if (loaderWave) {
+  WAVE_LEN = loaderWave.getTotalLength();
+  loaderWave.style.strokeDasharray = String(WAVE_LEN);
+  loaderWave.style.strokeDashoffset = String(WAVE_LEN);
+}
 document.body.classList.add('loading');
 
 function bootHero() {
@@ -30,6 +37,7 @@ if (reduce && loader) {
     onUpdate: () => {
       loaderCount.textContent = String(Math.round(c.v)).padStart(3, '0');
       loaderBar.style.width = c.v + '%';
+      if (loaderWave) loaderWave.style.strokeDashoffset = String(WAVE_LEN * (1 - c.v / 100));
     },
     onComplete: () => {
       gsap.to(loader, {
@@ -321,6 +329,9 @@ const menuOverlay = document.getElementById('menu-overlay');
 const menuClose = document.getElementById('menu-close');
 function setMenu(open) {
   document.body.classList.toggle('menu-open', open);
+  const mo = document.getElementById('menu-overlay');
+  if (mo) mo.setAttribute('aria-hidden', String(!open));
+  if (open) setTimeout(() => { const f = document.querySelector('#menu-overlay a'); if (f) f.focus(); }, 80);
   burger.setAttribute('aria-expanded', String(open));
   menuOverlay.setAttribute('aria-hidden', String(!open));
   if (lenis) open ? lenis.stop() : lenis.start();
@@ -330,7 +341,16 @@ menuClose.addEventListener('click', () => setMenu(false));
 menuOverlay.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener('click', () => setMenu(false));
 });
-window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenu(false);
+  if (e.key === 'Tab' && document.body.classList.contains('menu-open')) {
+    const f = [...document.querySelectorAll('#menu-overlay a, #menu-overlay button')].filter((el) => el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
 
 /* ================= v4: SHOT CYCLER (tomas 3D) ================= */
 import { t as i18nT } from './i18n';
@@ -585,4 +605,21 @@ window.addEventListener('langchange', () => {
     requestAnimationFrame(tick);
   };
   tick();
+})();
+
+/* ================= v16: pausa de videos fuera de viewport (perf movil) ================= */
+(() => {
+  const vids = document.querySelectorAll('video');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      const v = en.target;
+      if (!en.isIntersecting) {
+        v.pause();
+      } else if (v.loop && v.src) {
+        v.play().catch(() => {});
+      }
+    });
+  }, { threshold: 0.05 });
+  vids.forEach((v) => io.observe(v));
 })();

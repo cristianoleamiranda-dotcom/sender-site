@@ -35,3 +35,11 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - robots.txt + sitemap.xml (hreflang es/en) + canonical + og:locale/es_CL + alternate en_US.
 - JSON-LD Organization (dirección, tel, email, sameAs sender.cl).
 - Skip-link ES/EN, :focus-visible cian, aria-pressed en switch ES/EN (burger ya tenía aria-expanded).
+
+## v16 — cierre de brechas Usability/Creativity (2026-09-23)
+- Pausa automática de todo <video> fuera del viewport (IntersectionObserver); reanuda solo loops.
+- Focus-trap + aria-hidden dinámico + foco inicial en menú overlay (Esc ya existía).
+- Momento memorable: onda de marca que se dibuja (stroke-dashoffset) sincronizada al contador del preloader.
+- 404.html de marca ("Señal perdida en esta frecuencia").
+- Refuerzo cascade: productos 1 columna en <=900px con !important (confirmado por field recording).
+- i18n paridad verificada: 192 claves ES = 192 EN, sin faltantes.
