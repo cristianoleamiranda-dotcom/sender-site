@@ -109,3 +109,11 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Caps editoriales (fila duotono) desde 761px (antes 1101) → visibles tambien en movil modo escritorio.
 - Loader con brand-og.jpg (logo sobre mar tormentoso) + overlay .82.
 - Kit: CHECKLIST.md (criterios A-F con estados), TRACEABILITY.md (rounds 2-25 con herramientas/repos/commits/evidencia), WORKFLOW.md (repos, herramientas gratis, gates G0-G7, diseno primero).
+
+## v26 / v26.1 — 2026-09-23 — ronda de gates completos (G0-G7), diseno primero
+- G2 diseno: KNOB de sintonia (#dial-knob, role=slider, drag pointer + flechas teclado) = interaccion firma: girar el knob scrubea el pin de #espectro y con el reaccionan aguja, bandas, osciloscopio y film; en movil (sin pin) tunea directo.
+- Cero placeholders: prop-rapanui.mp4 = Ken Burns de cap-antennas.jpg (771KB); badges inline + leyenda ph-legend eliminados; mon-frame REC retirado de todo media real.
+- Preloads criticos: hero-wide.jpg (poster LCP, fetchpriority high) + man-600/sg-700 woff2.
+- Dossier-head con brand-og.jpg de fondo; caps editoriales 260-380px en >=761.
+- v26.1: backbone 960x1440 crf24 (4.1MB); loader 0.9s+0.55s (LCP hero ~1.5s antes).
+- Audit CI verde ambos runs; perf headless 0.56-0.61 = deuda aceptada y documentada (CHECKLIST E).
