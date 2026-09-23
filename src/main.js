@@ -1,6 +1,10 @@
 import './style.css';
 import './i18n';
-import './bg3d';
+/* v23.1: 3D background como chunk diferido (idle + solo puntero fino) = main bundle liviano */
+if (!window.matchMedia('(pointer: coarse), (max-width: 1100px)').matches) {
+  const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 900));
+  idle(() => import('./bg3d.js'));
+}
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
