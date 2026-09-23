@@ -103,3 +103,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - cap-*.mp4 regenerados Ken Burns desde las fotos reales (0.8-1.4MB c/u).
 - Badges ▸PROVISORIO retirados de las 4 cap-cards (contenido real); mon-frame REC ahora solo en media provisorio (prod/prop).
 - Provisionales restantes: prod-* (4 stacks) y prop-rapanui.
+
+## v25 — 2026-09-23 — verificabilidad + gates del departamento
+- #build-tag fijo abajo-izq ("SENDER · BUILD v25"): prueba objetiva de que el cliente ve el ultimo deploy (protocolo anti-cache WORKFLOW §5).
+- Caps editoriales (fila duotono) desde 761px (antes 1101) → visibles tambien en movil modo escritorio.
+- Loader con brand-og.jpg (logo sobre mar tormentoso) + overlay .82.
+- Kit: CHECKLIST.md (criterios A-F con estados), TRACEABILITY.md (rounds 2-25 con herramientas/repos/commits/evidencia), WORKFLOW.md (repos, herramientas gratis, gates G0-G7, diseno primero).
