@@ -83,3 +83,10 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Diagnostico: capturas 18:00 muestran nav con links desktop + layout 2 col en 415px → usuario navega con "Sitio de escritorio" de Chrome (viewport ~830-1350 CSS) → los media max-900 y pointer:coarse no aplicaban.
 - Fix: breakpoint max-1100px replica layout movil (cap-grid/about-grid/prod 1 col, prod-media 16/10, shot-stage full-bleed, pull) + low-power (sin backdrop-filter/grain/cursor/3D, breath 24vh, type-ring off) tambien por ancho.
 - bg3d COARSE = (pointer: coarse), (max-width: 1100px).
+
+## v23 — 2026-09-23 — web: hero alineado, hojas fantasma, caps editoriales + CI de auditoria
+- Hero desktop: centrado vertical (justify-content center) + veil aligerado (.22/.05/.42) → sin bloque solido inferior, copy alineada con el film.
+- Sheets desktop >=1101: fondo gradiente fantasma (.46→.26→.46) + blur 10 + border .08 (menos slab, mas film).
+- Cap-cards desktop: fila editorial (media 4/3 duotono grayscale a la izquierda + texto), SIN tag REC/scanlines/shot-hud en web; color al hover.
+- CI nuevo: .github/workflows/audit.yml = Lighthouse CI (2 runs + upload temporary-public-storage) + html-validate + budget bundle <700KB en cada push.
+- Kit: SKILL.md (skill de departamento) + benchmark Awwwards 2026 en scorecard.
