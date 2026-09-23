@@ -872,3 +872,23 @@ h1, h2, h3 { letter-spacing: -0.015em; }
 @media (max-width: 700px) {
   .sheet-glass, .sheet { padding: 36px 18px; border-radius: 22px; margin: 7vh auto; }
 }
+
+/* ============ v20: fuentes self-hosted + monitores REC + grado por capitulo ============ */
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/pxm-400.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/pxm-500.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/man-400.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/man-500.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/man-600.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/man-700.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/sg-500.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/sg-600.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/sg-700.woff2') format('woff2'); }
+#film-video { transition: filter 1.4s linear; }
+#film-layer[data-ch="0"] #film-video { filter: saturate(1.08) contrast(1.06) brightness(1.02); }
+#film-layer[data-ch="1"] #film-video { filter: saturate(1.04) contrast(1.09) brightness(1.0) hue-rotate(-5deg); }
+#film-layer[data-ch="2"] #film-video { filter: saturate(1.14) contrast(1.05) brightness(1.02) hue-rotate(4deg); }
+#film-layer[data-ch="3"] #film-video { filter: saturate(1.0) contrast(1.12) brightness(.97); }
+.mon-frame { position: relative; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; overflow: hidden; background: rgba(6,10,16,.5); }
+.mon-frame img, .mon-frame video { display: block; width: 100%; border: 0; border-radius: 0; }
+.mon-frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; background: repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 3px), radial-gradient(120% 90% at 50% 50%, transparent 62%, rgba(0,0,0,.4) 100%); }
+.mon-frame::before { content: '\25CF  REC'; position: absolute; top: 8px; left: 10px; z-index: 2; font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em; color: #ff5a5a; text-shadow: 0 1px 6px #000; animation: recblink 1.4s infinite; }

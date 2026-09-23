@@ -650,6 +650,7 @@ window.addEventListener('langchange', () => {
       if (prog) prog.style.height = (p * 100).toFixed(2) + '%';
       const ci = p < CH[1] ? 0 : p < CH[2] ? 1 : p < CH[3] ? 2 : 3;
       if (chEl) chEl.textContent = 'CH 0' + (ci + 1);
+      const fl = document.getElementById('film-layer'); if (fl) fl.dataset.ch = String(ci);
     },
   });
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -724,4 +725,16 @@ window.addEventListener('langchange', () => {
       ht.style.transform = 'perspective(900px) rotateY(' + (x * 5).toFixed(2) + 'deg) rotateX(' + (-y * 4).toFixed(2) + 'deg)';
     }, { passive: true });
   }
+})();
+
+/* ================= v20: monitores REC para media provisorio ================= */
+(() => {
+  const sel = '.cap-card video, .cap-card img, .slide video, .slide img, .receipt video, .receipt img';
+  const wrap = () => document.querySelectorAll(sel).forEach((m) => {
+    if (m.parentElement && m.parentElement.classList.contains('mon-frame')) return;
+    const f = document.createElement('div'); f.className = 'mon-frame';
+    m.parentNode.insertBefore(f, m); f.appendChild(m);
+  });
+  wrap();
+  window.addEventListener('langchange', wrap);
 })();
