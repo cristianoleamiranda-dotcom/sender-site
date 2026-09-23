@@ -943,8 +943,8 @@ h1, h2, h3 { letter-spacing: -0.015em; }
 @media (min-width: 761px) {
   .hero-stats { margin-top: clamp(28px, 5vh, 64px); }
   .sheet-glass {
-    background: linear-gradient(180deg, rgba(6,10,16,.46), rgba(6,10,16,.26) 22% 78%, rgba(6,10,16,.46));
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(6,10,16,.66), rgba(6,10,16,.5) 22% 78%, rgba(6,10,16,.66));
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border-color: rgba(255,255,255,.08);
   }
   .cap-card { display: grid; grid-template-columns: minmax(180px, 240px) 1fr; gap: 26px; align-items: center; }
@@ -991,3 +991,10 @@ h1, h2, h3 { letter-spacing: -0.015em; }
 .brand-bg { position: absolute; inset: 0; background-position: center 35%; background-size: cover; background-repeat: no-repeat; opacity: .38; pointer-events: none; z-index: 0; }
 #loader > *:not(.brand-bg) { position: relative; z-index: 1; }
 .dossier-head > *:not(.brand-bg) { position: relative; z-index: 1; }
+
+/* ============ v27: declutter catalogo + agrupacion CTA ============ */
+.prod-copy { padding: 4vh 0 5vh; }
+.prod-copy .prod-lead { margin-bottom: 18px; }
+.prod-specs { margin-bottom: 0; }
+#catalogo #dossier-open { display: block; width: fit-content; margin: 34px auto 4px; }
+#catalogo .prod + .prod { margin-top: 2vh; }
