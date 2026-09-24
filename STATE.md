@@ -147,3 +147,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Evidencia: prod servía v30 fresco (etag/last-modified nuevos) → dispositivo del usuario con cache; aun así, cambios v27-v30 no eran de primer pantallazo.
 - v31: nav pill de vidrio flotante; hero-title gradiente de marca clamp hasta 150px; hero-stats tira con hairlines; números de capítulo outline gigantes (data-wm 01-07) en cada sección; prod-stack enmarcado (radius 22 + sombra profunda).
 - Incidente: rescue reset perdió el CSS v31 (HTML sí subió) → restaurado y verificado por 4 claves exactas en CSS prod.
+
+## 2026-09-24 — sender-web: REDISEÑO EN REPO NUEVO (pedido del usuario)
+- Nuevo repo independiente `sender-web` (Pages propia): https://cristianoleamiranda-dotcom.github.io/sender-web/
+- Diseño "Editorial Film": capítulos claros en papel (Capacidades, Nosotros) alternados con capítulos cinematográficos oscuros; nav píldora; números de capítulo outline; portada full-bleed del catálogo; velo de transición; hero con gradiente de marca.
+- Estático sin bundler: base.css + styles.css + app.js/i18n.js módulos ES con gsap/ScrollTrigger/Lenis vía CDN. Diccionario ES/EN 198 claves; fotos/videos/fuentes reales.
+- Bug cazado antes de anunciar: bare `import gsap` en i18n.js → `window.gsap`.
