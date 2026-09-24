@@ -136,3 +136,9 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 ## v29 — 2026-09-23 — WEB FINAL (pase de coherencia completo)
 - Auditoria post-v28 encontro lo que el usuario senalo ("haces algo y dejas de hacer otras"): v28.1 habia reutilizado las mismas fotos entre stacks de productos. Fix: 16 vistas UNICAS stack-{am,fm,nx,tw}-v{1..4}.jpg (recortes 1000-1400px + grados eq de las fotos reales, 682 KB total). Cero repeticion de imagen en toda la web.
 - BUILD v29. Deploy fddc92f success; verificado: tag=1, 16 refs unicas, assets 200.
+
+## v30 — 2026-09-24 — REDISEÑO EVIDENTE (feedback: "no se ven cambios")
+- Diagnóstico: producción sí tenía v29 (verificado curl) → lo visto era cache del dispositivo; además los cambios v27-v29 eran sutiles.
+- Portada full-bleed del Catálogo: 96svh con cap-critical.jpg real, título clamp(42-104px), folio 03/07, gradiente a --bg, cue "SCROLL ▾" animado (P19).
+- Velo de capítulo: overlay #0b1220 con folio+título+línea al entrar/salir de cada sección (ScrollTrigger, armado a los 3s, reducido-motion lo apaga) (P13).
+- BUILD v30. Deploy f843186 success; verificado html+JS+CSS en prod.
