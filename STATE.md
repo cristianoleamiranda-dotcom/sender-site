@@ -142,3 +142,8 @@ assets disponibles, marcado también visualmente en el sitio, reemplazable por v
 - Portada full-bleed del Catálogo: 96svh con cap-critical.jpg real, título clamp(42-104px), folio 03/07, gradiente a --bg, cue "SCROLL ▾" animado (P19).
 - Velo de capítulo: overlay #0b1220 con folio+título+línea al entrar/salir de cada sección (ScrollTrigger, armado a los 3s, reducido-motion lo apaga) (P13).
 - BUILD v30. Deploy f843186 success; verificado html+JS+CSS en prod.
+
+## v31 — 2026-09-24 — REDISEÑO VISIBLE (feedback repetido: "no se ven cambios")
+- Evidencia: prod servía v30 fresco (etag/last-modified nuevos) → dispositivo del usuario con cache; aun así, cambios v27-v30 no eran de primer pantallazo.
+- v31: nav pill de vidrio flotante; hero-title gradiente de marca clamp hasta 150px; hero-stats tira con hairlines; números de capítulo outline gigantes (data-wm 01-07) en cada sección; prod-stack enmarcado (radius 22 + sombra profunda).
+- Incidente: rescue reset perdió el CSS v31 (HTML sí subió) → restaurado y verificado por 4 claves exactas en CSS prod.
